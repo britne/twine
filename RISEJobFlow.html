@@ -107,10 +107,29 @@ body
 body { background-color: #F3F3EE; color: #0BB340; }
 
 img.right { float: right; }
+img.lb { float: left; clear:both; margin: .5em; }
+p.lb { overflow: auto; margin: 0;}
 
 #menu li a { color: #4f504b; }
 
 #menu li a:hover { color: #F3F3EE; }
+
+tr:hover 
+{ background-color: #fbb01b; 
+  color: #ffffff;
+}
+
+table, td, th 
+{ border: 1px solid #000000; 
+  border-collapse: collapse;
+  text-align: left;
+  padding: 5px;
+}
+
+th {
+    background-color: #0BB340;
+    color: #ffffff;
+}
 
 #ui-bar
 { background-image: url("https://britne.github.io/twine/RISE6bg.png") ; 
@@ -121,6 +140,7 @@ img.right { float: right; }
 
 .sales 
 { color: #634299; 
+  font-style: italic;
   background-color: #ffffff;  
   border-style: solid;
   border-color: #634299; 
@@ -139,7 +159,7 @@ img.right { float: right; }
 { color: #1466a8; 
   background-color: #ffffff;  
   border-style: solid;
-  border-color: #634299; 
+  border-color: #1466a8; 
   border-radius: 1em; 
   padding: .5em;
 }
@@ -150,14 +170,26 @@ img.right { float: right; }
   border-color: #000000; 
   padding: .5em;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+.bts 
+{ color: #0BB340; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #0BB340; 
+  padding: .5em;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">predisplay["Menu Return"] = function (taskName) {
+	if (! tags().contains("noreturn")) {
+		State.variables.return = passage();
+	}
+};
 
 
 
-</script><tw-passagedata pid="1" name="Start" tags="" position="0,1">Welcome to RISE #6 - The Job Flow!
+</script><tw-passagedata pid="1" name="Start" tags="" position="0,1">!!Welcome to RISE #6 - The Job Flow!
 
+This interactive story game will let you step into your customer&#x27;s shoes and explore the Job Flow from their point of view. You&#x27;ll start as a prospective SolarCity customer. Each choice you make throughout the story game will change the outcome of your job.
 
-What should I call you? Type your name in the box below.
+Let&#x27;s get started! What should I call you? 
+Type your name in the box below.
 &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name&quot; autofocus&gt;&gt;
 
 [[Continue|Name]]</tw-passagedata><tw-passagedata pid="2" name="Name" tags="" position="126,1">Hello, $name!
@@ -186,7 +218,7 @@ How do you want to learn more?
 &lt;&lt;link [[Call SolarCity&#x27;s 888 Number|Phone]]&gt;&gt;&lt;&lt;set $contact = &#x27;call&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[Talk to a Consultant at Home Depot|Visit]]&gt;&gt;&lt;&lt;set $contact = &#x27;visit&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="4" name="Variables" tags="" position="1401,0">Name: &lt;&lt;print $name&gt;&gt;
+</tw-passagedata><tw-passagedata pid="4" name="Variables" tags="" position="1502,0">Name: &lt;&lt;print $name&gt;&gt;
 Roof: &lt;&lt;print $roof&gt;&gt;
 Trees: &lt;&lt;print $tree&gt;&gt;
 Contact Preference: &lt;&lt;print $contact&gt;&gt;
@@ -199,7 +231,10 @@ Who can they call?: &lt;&lt;print $callforhelp&gt;&gt;
 Medallia status: &lt;&lt;print $medallia&gt;&gt;
 Site Survey scheduled in app?: &lt;&lt;print $schedule&gt;&gt;
 SS day: &lt;&lt;print $dayofweek&gt;&gt;
-SS time: &lt;&lt;print $timeofday&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="" position="1199,0">[[Check Variables Used|Variables]]
+SS time: &lt;&lt;print $timeofday&gt;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="" position="1199,0">[[Navigation Help]]
+[[Check Variables Used|Variables]]
 
 &lt;&lt;if $callforhelp == &quot;concierge&quot;&gt;&gt;
 [[Call My Concierge!]]
@@ -265,35 +300,36 @@ I&#x27;d like to prepare you for your upcoming appointment.
 Before we get together next week, I&#x27;m going to create a personalized system design for your home so we can see exactly how solar can benefit you. Because every home is unique, and everyone uses electricity differently, if I can review your electrical usage beforehand it will save us some time when we get together.
 
 Do you have access to your utility bill online?
+&lt;/div&gt;
 &lt;&lt;link [[Yes, I can get a copy.|UB-Yes]]&gt;&gt;&lt;&lt;set $ub = &quot;yes&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[No, I only have a paper copy.|UB-No]]&gt;&gt;&lt;&lt;set $ub = &quot;no&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="UB-Yes" tags="" position="176,377">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Great! It will help us get started if you could email that to me.
+</tw-passagedata><tw-passagedata pid="10" name="UB-Yes" tags="" position="176,377">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Great! It will help us get started if you could email that to me.
 
-Is there anyone else that has an interest in the home?
+Is there anyone else that has an interest in the home?&lt;/div&gt;
 [[Yes, other family members|Other-Yes]]
 [[No, just me|Other-No]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="UB-No" tags="" position="327,376">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;No worries. I can email you some instructions so you have everything ready for our appointment.
+</tw-passagedata><tw-passagedata pid="11" name="UB-No" tags="" position="327,376">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;No worries. I can email you some instructions so you have everything ready for our appointment.
 
-Is there anyone else that has an interest in the home?
+Is there anyone else that has an interest in the home?&lt;/div&gt;
 [[Yes, other family members|Other-Yes]]
 [[No, just me|Other-No]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Other-Yes" tags="" position="173,501">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Fantastic! Make sure they&#x27;re able to join us for our consultation appointment.
+</tw-passagedata><tw-passagedata pid="12" name="Other-Yes" tags="" position="173,501">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Fantastic! Make sure they&#x27;re able to join us for our consultation appointment.
 
 A lot of my customers invite their neighbors, friends and family who are also curious about solar to sit in on the consultation. If you think of anyone, you are more than welcome to invite them!
 
 Just so you know, the consultation typically takes about an hour to an hour-and-a-half depending on how many questions you have. But, I&#x27;m more than happy to spend as much time as you would like.
 
-I&#x27;ll send you an email right now with some more information. See you next week!
+I&#x27;ll send you an email right now with some more information. See you next week!&lt;/div&gt;
 
 [[Continue|EC-Email]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Other-No" tags="" position="324,499">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That&#x27;s okay. A lot of my customers invite their neighbors, friends and family who are also curious about solar to sit in on the consultation. If you think of anyone, you are more than welcome to invite them!
+</tw-passagedata><tw-passagedata pid="13" name="Other-No" tags="" position="324,499">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That&#x27;s okay. A lot of my customers invite their neighbors, friends and family who are also curious about solar to sit in on the consultation. If you think of anyone, you are more than welcome to invite them!
 
 Just so you know, the consultation typically takes about an hour to an hour-and-a-half depending on how many questions you have. But, I&#x27;m more than happy to spend as much time as you would like.
 
-I&#x27;ll send you an email right now with some more information. See you next week!
+I&#x27;ll send you an email right now with some more information. See you next week!&lt;/div&gt;
 
 [[Continue|EC-Email]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="EC-Email" tags="" position="249,625">You receive an email from Sally:
+</tw-passagedata><tw-passagedata pid="14" name="EC-Email" tags="" position="249,625">You receive an email from Sally:
 
 &lt;div class=&quot;email&quot;&gt;Hi again, $name!
 I&#x27;m looking forward to our appointment next week.
@@ -313,68 +349,67 @@ sally.sunshine@solarcity.com
 &lt;/div&gt;
 [[Continue|Consultation2]]</tw-passagedata><tw-passagedata pid="15" name="Consultation2" tags="" position="250,750">It&#x27;s time for your consultation! Sally arrives promptly on time.
 
-&lt;div class=&quot;talk&quot;&gt;Hi $name, great to finally meet you in person! You have such a lovely home!
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hi $name, great to finally meet you in person! You have such a lovely home!
 
-I&#x27;ve learned a bit about you and your home through our conversations so far, but I&#x27;d like to start by sharing with you why I love what I do. 
-
-One of the things I love most about my job is being able to make a different at so many levels. I love to sit down with people like you every day and help them take control of their energy costs. On a larger scale, we&#x27;re really making a difference in our communities and even globally. SolarCity is revolutionizing the way we produce energy and at the same time making an enormous impact environmentally.
+I&#x27;ve learned a bit about you and your home through our conversations so far, but I&#x27;d like to start by &lt;&lt;linkappend &quot;sharing with you why I love what I do.&quot;&gt;&gt; One of the things I love most about my job is being able to make a different at so many levels. I love to sit down with people like you every day and help them take control of their energy costs. On a larger scale, we&#x27;re really making a difference in our communities and even globally. SolarCity is revolutionizing the way we produce energy and at the same time making an enormous impact environmentally.&lt;&lt;/linkappend&gt;&gt;
 
 $name, my goal today is to see if solar makes sense for you. I&#x27;ll share an overview of SolarCity, guide you through our evaluation process and answer any questions you have. The good news is, we have a solution for almost everyone.
 
-I&#x27;d like to ask you a few questions to better understand your situation and find the solution that works for you. Is that okay?
+I&#x27;d like to ask you a few questions to better understand your situation and find the solution that works for you. Is that okay?&lt;/div&gt;
 
 [[Of course!|Consultation3]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Consultation3" tags="" position="250,876">&lt;div class=&quot;talk&quot;&gt;First of all, do you have any specific concerns or questions? I want to make sure we address them today.
+</tw-passagedata><tw-passagedata pid="16" name="Consultation3" tags="" position="250,876">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;First of all, do you have any specific concerns or questions? I want to make sure we address them today.
+&lt;/div&gt;
 
-[[My biggest concern is my roof leaking.|Roof]]
-[[My biggest concern is that I&#x27;ll actually save money.|Savings]]
+[[I&#x27;m worried about my roof leaking.|Roof]]
+[[I&#x27;m wondering if I&#x27;ll actually save money.|Savings]]
 [[Aren&#x27;t solar panels ugly?|Looks]]
 [[I don&#x27;t have any specific concerns at the moment.|None]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Roof" tags="" position="125,1000">&lt;div class=&quot;talk&quot;&gt;That makes sense - I hear that concern a lot.
+</tw-passagedata><tw-passagedata pid="17" name="Roof" tags="" position="125,1000">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
 
 So, if I&#x27;m understanding your concern, you want to make sure that if the panels cause your roof to leak, there is a warranty in place to protect you and your investment in your home. 
 
 The short answer is, of course we have a warranty! SolarCity actually has the best warranty in the industry. I&#x27;ll make sure I cover all of the details with you.
 
 Hear what some existing customers have to say:
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6L_IFZlDecU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/YcSGc7aY-Xg&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-What else is a concern?
+What else is a concern?&lt;/div&gt;
 
 [[I&#x27;m wondering if I&#x27;ll actually save money.|Savings]]
 [[Aren&#x27;t solar panels ugly?|Looks]]
 [[I don&#x27;t have other concerns at the moment.|None]]
-&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="18" name="Savings" tags="" position="251,1000">&lt;div class=&quot;talk&quot;&gt;That makes sense - I hear that concern a lot.
+
+</tw-passagedata><tw-passagedata pid="18" name="Savings" tags="" position="251,1000">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
 
 There are many different ways that solar can benefit you financially. I&#x27;ll make sure we cover that in detail for you.
 
 Hear what some existing customers have to say:
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6L_IFZlDecU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/4tvE136khAE&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-What else is a concern?
+What else is a concern?&lt;/div&gt;
 [[I&#x27;m worried about my roof leaking.|Roof]]
 [[Aren&#x27;t solar panels ugly?|Looks]]
 [[I don&#x27;t have other concerns at the moment.|None]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="None" tags="" position="253,1129">&lt;div class=&quot;talk&quot;&gt;If you think of any concerns or questions along the way, please let me know.
+</tw-passagedata><tw-passagedata pid="19" name="None" tags="" position="253,1129">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;If you think of any concerns or questions along the way, please let me know.
 
 [[Let me tell you a little more about SolarCity.|Consultation4]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Consultation4" tags="" position="377,1126">&lt;div class=&quot;talk&quot;&gt;SolarCity is the nation&#x27;s largest Solar	Company. In fact, we’re bigger	than the next 10 companies combined. Currently, we install 1 out of every 3 solar systems in the U.S.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Consultation4" tags="" position="376,1126">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;linkappend &quot;SolarCity is the nation&#x27;s largest Solar Company.&quot;&gt;&gt; In fact, we’re bigger than the next 10 companies combined. Currently, we install 1 out of every 3 solar systems in the U.S.&lt;&lt;/linkappend&gt;&gt;
 
-We’re backed by billions. People want to know that the company they’re working with is going to be around. Our financial partners include companies like Google, Morgan Stanley, and Goldman Sachs.
+&lt;&lt;linkappend &quot;We’re backed by billions.&quot;&gt;&gt; People want to know that the company they’re working with is going to be around. Our financial partners include companies like Google, Morgan Stanley, and Goldman Sachs.&lt;&lt;/linkappend&gt;&gt;
 
-We have the best warranty in the industry, and our contract is so transparent we literally posted it on the internet.
+&lt;&lt;linkappend &quot;We have the best warranty in the industry.&quot;&gt;&gt; Our contract is so transparent we literally posted it on the internet.&lt;&lt;/linkappend&gt;&gt;
 
-We have superior technology. Our mounting system is the best in the world; our design software is so advanced it allows us to give precise estimates before ever stepping on the roof, and our PowerGuide technology enables our customers to monitor their solar production on our MySolarCity app.
+&lt;&lt;linkappend &quot;We have superior technology.&quot;&gt;&gt; Our mounting system is the best in the world; our design software is so advanced it allows us to give precise estimates before ever stepping on the roof, and our PowerGuide technology enables our customers to monitor their solar production on our MySolarCity app.&lt;&lt;/linkappend&gt;&gt;
 
-Our corporate partners are household names: BMW, Home Depot, Best Buy, Honda, Google, and of course Tesla. These companies don’t partner with just anyone; they’ve done their homework.
+&lt;&lt;linkappend &quot;Our corporate partners are household names.&quot;&gt;&gt; BMW, Home Depot, Best Buy, Honda, Google, and of course Tesla - these companies don’t partner with just anyone; they’ve done their homework.&lt;&lt;/linkappend&gt;&gt;
 
-Thanks for letting me share! Does SolarCity sound like a company you&#x27;d be comfortable working with?
+Thanks for letting me share! Does SolarCity sound like a company you&#x27;d be comfortable working with?&lt;/div&gt;
 
 [[Of course!|Consultation5]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Consultation5" tags="" position="381,1251">&lt;div class=&quot;talk&quot;&gt;Okay then! Let&#x27;s step outside and take a look at your roof so we can determine the best design. I&#x27;ve already looked at the satellite images, but it&#x27;s always a good idea to walk around and see the roof in person.
+</tw-passagedata><tw-passagedata pid="21" name="Consultation5" tags="" position="381,1251">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Okay then! Let&#x27;s step outside and take a look at your roof so we can determine the best design. I&#x27;ve already looked at the satellite images, but it&#x27;s always a good idea to walk around and see the roof in person.
 
 You have a lovely $roof roof! This material is durable enough to support solar panels. We have the best-looking systems in the industry - they&#x27;re sleeker, lighter, and have a tapered edge that contours to your roof. I&#x27;ll show you some pictures when we get back inside!
 
@@ -383,19 +418,19 @@ You have a lovely $roof roof! This material is durable enough to support solar p
 &lt;&lt;elseif $tree == &quot;no&quot;&gt;&gt;I see you don&#x27;t have many trees. Tree shade can affect solar production so I always factor that into the design.
 &lt;&lt;else&gt;&gt;Tree shade can affect solar production so we factor that into the design.&lt;&lt;/if&gt;&gt;
 
-I think I have everything I need out here. Let&#x27;s head back inside to take a look at those pictures, and your most recent electricity bill.
+I think I have everything I need out here. Let&#x27;s head back inside to take a look at those pictures, and your most recent electricity bill.&lt;/div&gt;
 
 [[I&#x27;m geting excited! Show me how much I can save.|Consultation6]]
-&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="22" name="Consultation6" tags="" position="378,1376">&lt;div class=&quot;talk&quot;&gt;&lt;&lt;if $ub == &quot;yes&quot;&gt;&gt;Thanks for emailing me your utility bill. &lt;&lt;elseif $ub == &quot;no&quot;&gt;&gt;In my email, I mentioned having your utility bill ready. Do you have it?&lt;&lt;else&gt;&gt;Let&#x27;s look at your utility bill.&lt;&lt;/if&gt;&gt;
+
+</tw-passagedata><tw-passagedata pid="22" name="Consultation6" tags="" position="378,1376">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $ub == &quot;yes&quot;&gt;&gt;Thanks for emailing me your utility bill. &lt;&lt;elseif $ub == &quot;no&quot;&gt;&gt;In my email, I mentioned having your utility bill ready. Do you have it?&lt;&lt;else&gt;&gt;Let&#x27;s look at your utility bill.&lt;&lt;/if&gt;&gt;
 
 Most people don’t fully understand why our electricity rates keep going up. The utilities have a big problem; they have to transport the power hundreds of miles from where it’s created to where it’s actually being used in our homes. To do that, they have to build and maintain an enormous infrastructure. They spend billions every year because they have to constantly repair and expand this distribution network. These costs are what they use to justify increasing our prices year after year. At SolarCity, we offer a better way. We generate electricity on your roof, send it directly into your home, and tell you exactly what your cost/rate will be for the next 20 years! This gives you predictability, control, and protection against the rising costs from the utility. Pretty amazing, right?
 
-So we have a couple different solutions that can help you. I just have a few questions I’d like to ask that will guide us toward the best fit.
+So we have a couple different solutions that can help you. I just have a few questions I’d like to ask that will guide us toward the best fit.&lt;/div&gt;
 
 [[Sounds good!|Consultation7]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Consultation7" tags="" position="375,1500">How long do you plan to stay in your home?
+</tw-passagedata><tw-passagedata pid="23" name="Consultation7" tags="" position="375,1500">How long do you plan to stay in your home?
 &lt;&lt;radiobutton &quot;$time&quot; &quot;forever&quot; checked&gt;&gt;This is my dream home - I&#x27;m here forever!
 &lt;&lt;radiobutton &quot;$time&quot; &quot;someday&quot;&gt;&gt;I have no plans to move, but I&#x27;m not opposed to moving someday.
 &lt;&lt;radiobutton &quot;$time&quot; &quot;soon&quot;&gt;&gt;I&#x27;m looking to buy a new home in the near future.
@@ -409,7 +444,7 @@ You might be able to take advantage of the Investment Tax Credit. Are you curren
 &lt;&lt;radiobutton &quot;$tax&quot; &quot;no&quot;&gt;&gt;No, I don&#x27;t have a tax liability.
 
 [[Which contract type is right for me?|Contract]]
-</tw-passagedata><tw-passagedata pid="24" name="Contract" tags="" position="377,1623">&lt;div class=&quot;talk&quot;&gt;Based on what you&#x27;ve told me, it definitely seems like we have a solution for you.
+</tw-passagedata><tw-passagedata pid="24" name="Contract" tags="" position="377,1623">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Based on what you&#x27;ve told me, it definitely seems like we have a solution for you.
 
 &lt;&lt;if $time == &quot;forever&quot;&gt;&gt;Since you plan to stay in your home for many years, you&#x27;d benefit from locking in your electricity rates now.&lt;&lt;elseif $time == &quot;someday&quot;, &quot;soon&quot;&gt;&gt;If you don&#x27;t stay in this home, there are several options available. You may be able to transfer the system to the new homeowner, or move the system to your new home. We have an excellent Contract Reassignment team that can help you work with the real estate agents and lenders involved, should you decide to move someday.&lt;&lt;else&gt;&gt;No matter how long you plan to stay in your home, solar is a great choice.&lt;&lt;/if&gt;&gt;
 
@@ -418,11 +453,12 @@ You might be able to take advantage of the Investment Tax Credit. Are you curren
 &lt;&lt;if $tax == &quot;yes&quot;&gt;&gt;Since you have a tax liability, you may be able to benefit from the Investment Tax Credit. Purchasing the system may have tax savings for you.&lt;&lt;elseif $tax == &quot;no&quot;&gt;&gt;
 Since you don&#x27;t currently have a tax liability, owning a system may not make the most sense for your situation. Consult a tax advisor for more specific details, but purchasing only the power you use might be your best bet.&lt;&lt;else&gt;&gt;A tax advisor can help explain the current incentives that are available to you.&lt;&lt;/if&gt;&gt;
 
-I&#x27;ll make some adjustments to the design based on what I saw outside, and then I&#x27;ll show you your personalized proposal. Which contract type do you prefer?
+I&#x27;ll make some adjustments to the design based on what I saw outside, and then I&#x27;ll show you your personalized proposal. Which contract type do you prefer?&lt;/div&gt;
 
 &lt;&lt;link [[I think the Solar Loan is the best option for me.|SolarLoan]]&gt;&gt;&lt;&lt;set $contract = &#x27;loan&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I think the PPA contract will work best for me.|PPA]]&gt;&gt;&lt;&lt;set $contract = &#x27;ppa&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="SolarLoan" tags="" position="596,1746">&lt;div class=&quot;talk&quot;&gt;&lt;&lt;if visited(&quot;PPA&quot;)&gt;&gt;If I&#x27;m understanding you correctly, it sounds like the PPA contract wasn&#x27;t the best fit.&lt;&lt;/if&gt;&gt;Let&#x27;s take a look at the Solar Loan proposal.
+[[I&#x27;m still not sure. Can I compare my options?|Compare]]
+</tw-passagedata><tw-passagedata pid="25" name="SolarLoan" tags="" position="600,1747">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if visited(&quot;PPA&quot;)&gt;&gt;If I&#x27;m understanding you correctly, it sounds like the PPA contract wasn&#x27;t the best fit.&lt;&lt;/if&gt;&gt;Let&#x27;s take a look at the Solar Loan proposal.
 
 According to your current utility bill, you&#x27;re paying about $120 per month with your utility, and it&#x27;s uncertain how much that will be in the future.
 
@@ -432,33 +468,42 @@ Let&#x27;s do the math. $30 a month more, for 12 months over 20 years is $7,200.
 
 The best part is, you&#x27;re eligible for a $9,000 tax credit. So you&#x27;re looking at $7,200 spread over 20 years, and a $9,000 credit this year.
 
-You have a few options on the Solar Loan. Your monthly payment for the first 18 months will be lower than the rest of the loan term. If you want to keep the lower payment, you can apply the full amount of your tax credit to the loan, and it will stay that amount for the rest of the term. But of course, the tax credit is yours and you can do whatever works best for you. There are two term options - a 20 year loan at 4.99% APR, or a 10 year loan at 2.99%. Also, there are no penalties for prepayment, so you can pay off entire the system at any time.
+You have a few options on the Solar Loan. Your monthly payment for the first 18 months will be lower than the rest of the loan term. If you want to keep the lower payment, you can apply the full amount of your tax credit to the loan, and it will stay that amount for the rest of the term. But of course, the tax credit is yours and you can do whatever works best for you. There are two term options - a 20 year loan at 4.99% APR, or a 10 year loan at 2.99%. Also, there are no penalties for prepayment, so you can pay off the entire system at any time.&lt;/div&gt;
 
 &lt;&lt;link [[Perfect! Solar Loan sounds great!|CreditCheck]]&gt;&gt;&lt;&lt;set $contract = &#x27;loan&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I&#x27;m not sure. Can you tell me more about the PPA?|PPA]]&gt;&gt;&lt;&lt;set $contract = &#x27;ppa&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="PPA" tags="" position="452,1750">&lt;div class=&quot;talk&quot;&gt;&lt;&lt;if visited(&quot;SolarLoan&quot;)&gt;&gt;If I&#x27;m understanding you correctly, it sounds like the Solar Loan contract wasn&#x27;t the best fit.&lt;&lt;/if&gt;&gt;Let&#x27;s take a look at the PPA proposal.
+[[Can I see a comparison chart?|Compare]]
+</tw-passagedata><tw-passagedata pid="26" name="PPA" tags="" position="448,1748">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if visited(&quot;SolarLoan&quot;)&gt;&gt;If I&#x27;m understanding you correctly, it sounds like the Solar Loan contract wasn&#x27;t the best fit.&lt;&lt;/if&gt;&gt;Let&#x27;s take a look at the PPA proposal.
 
 With this type of contract, you make your own power with a system SolarCity owns, and only pay for the energy you use. Rather than pay your utility and watch your bill go up year after year, now you can take control of your energy costs and know exactly what you&#x27;re paying for the next 20 years.
 
 We offer both a custom solution and a Pay As You Go plan. The custom plan locks in a fixed rate for the next 20 years; many customers choose this option because their bill will literally never increase in 20 years. The Pay As You Go plan starts with a lower rate and slowly increases over time. People like this plan because they want to pay less now.
 
-Does the PPA sound like it will work for you?
+Does the PPA sound like it will work for you?&lt;/div&gt;
 
 &lt;&lt;link [[Perfect! A PPA sounds great!|CreditCheck]]&gt;&gt;&lt;&lt;set $contract = &#x27;ppa&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;&lt;link [[I&#x27;m not sure. Can you tell me more about the Solar Loan?|SolarLoan]]&gt;&gt;&lt;&lt;set $contract = &#x27;loan&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="CreditCheck" tags="" position="467,1889">&lt;div class=&quot;talk&quot;&gt;Great! The next step is to open up your email. We&#x27;ll do a quick credit check to get you approved, and then we can go through the agreement. If everything looks good, you can sign it electronically and then we&#x27;ll schedule your site survey.
+&lt;&lt;link [[I&#x27;m not sure. Can you tell me more about the Solar Loan?|SolarLoan]]&gt;&gt;&lt;&lt;set $contract = &#x27;loan&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
+[[Can I see a comparison chart?|Compare]]</tw-passagedata><tw-passagedata pid="27" name="CreditCheck" tags="" position="529,1877">&lt;div class=&quot;talk&quot;&gt;Great! The next step is to open up your email. We&#x27;ll do a quick credit check to get you approved, and then we can go through the agreement. If everything looks good, you can sign it electronically and then we&#x27;ll schedule your site survey.
 
-[[Sounds good!|Agreement]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Agreement" tags="" position="325,1896">&lt;div class=&quot;talk&quot;&gt;Here is your customized agreement. Go ahead and review it, below.
+[[Sounds good!|Agreement]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Agreement" tags="" position="375,1876">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Here is your customized agreement. Go ahead and review it, below.
 
 &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;&lt;a href=&quot;https://thegrid.solarcity.com/display/OPSCAMG/PPA+Contract&quot; target=&quot;_blank&quot;&gt;View your PPA Contract&lt;/a&gt;&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;&lt;a href=&quot;https://thegrid.solarcity.com/display/OPSCAMG/Solar+Loan&quot; target=&quot;_blank&quot;&gt;View your Solar Loan Contract&lt;/a&gt;&lt;&lt;else&gt;&gt;I&#x27;m sorry, I wasn&#x27;t able to pull up your contract. Try going back to the [[Contract Choice page|Contract]] and selecting your contract type again.&lt;&lt;/if&gt;&gt;
 
-If everything looks good, go ahead and sign your full name in the box below.
+If everything looks good, go ahead and sign your full name.&lt;/div&gt;
+
+Sign your &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;PPA&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;Solar Loan&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;contract in the box below:
 
 &lt;&lt;textbox &quot;$sig&quot; &quot;&quot; &quot;Signature&quot; autofocus&gt;&gt;
 
-[[Sign my contract!|JobNumber]]&lt;/div&gt;
+&lt;&lt;linkreplace &quot;Sign Contract&quot;&gt;&gt;
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-2.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Hi there, $name! 
+Luis the Lightbulb here, nice to meet you! 
+I&#x27;ll be giving you a &quot;sneak peek&quot; behind the scenes at SolarCity. 
+You must really be a VIP customer - because I don&#x27;t get to meet everyone.
+Whenever you see me around, you know you&#x27;re getting the inside scoop on your job.
+See you soon!&lt;/p&gt;&lt;/div&gt;
 
-
-Behind the scenes: job number created</tw-passagedata><tw-passagedata pid="29" name="JobNumber" tags="" position="373,2051">&lt;&lt;set $callforhelp to &quot;concierge&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;journey1&quot;&gt;&gt;&lt;div class=&quot;talk&quot;&gt;Okay, great! The final steps are to schedule your site survey and set-up your MySolarCity account. 
+[[Continue|JobNumber]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="JobNumber" tags="" position="377,2001">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Okay, great! The final steps are to schedule your site survey and set-up your MySolarCity account. 
 
 Let me share the steps of our installation process. The first step is the paperwork. In addition to our Agreement, there will be paperwork for incentives, rebates, designs, permits, your new meter and other documents needed to upgrade your home to solar power. You will see these in the ‘Document Portal’ in your MySolarCity account. 
 
@@ -466,13 +511,13 @@ The next step is to conduct a site survey. With the information gathered our pro
 
 Once we have the permit, we can schedule your installation, which will only take a day or two. Our goal is to have your system installed within TIME FRAME BASED ON CONTRACT TYPE.
 
-After the system has been installed, they will come out to verify all ofour work is	up to code. Now here’s the best part, we take that final permit to the utility and that permit requires them to place a meter on your home that gives you credit for all of the power your system generates that you don’t immediately use. This is called Net Metering.
+After the system has been installed, they will come out to verify all ofour work is	up to code. Now here’s the best part, we take that final permit to the utility and that permit requires them to place a meter on your home that gives you credit for all of the power your system generates that you don’t immediately use. This is called Net Metering.&lt;/div&gt;
 
-[[Awesome!|MySolarCity]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="MySolarCity" tags="" position="374,2253">What’s great is you can always see the status of your job in the	MySolarCity App. In fact, let’s download the App right now and I’ll walk you through how it works.
+[[Awesome!|MySolarCity]]</tw-passagedata><tw-passagedata pid="30" name="MySolarCity" tags="" position="376,2125">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;What’s great is you can always see the status of your job in the MySolarCity App. In fact, let’s download the App right now and I’ll walk you through how it works.
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MXZiwI_0UrM&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-The next step is your site survey - and you can schedule it right here in the MySolarCity App. Would you like to schedule it now?
+The next step is your site survey - and you can schedule it right here in the MySolarCity App. Would you like to schedule it now?&lt;/div&gt;
 
 &lt;&lt;link [[Yes, let&#x27;s do it now!|ScheduleApp]]&gt;&gt;&lt;&lt;set $schedule == true&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I&#x27;ll have to look at my calendar. Can we do it later?|NextSteps]]&gt;&gt;&lt;&lt;set $schedule == false&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -482,12 +527,16 @@ The next step is your site survey - and you can schedule it right here in the My
 [[I have paperwork to submit.|C-paperwork]]
 [[I want to know what&#x27;s taking so long on my job!|C-time]]
 [[I want to cancel!|C-cancel]]
+
+Use the back arrow to return.
 </tw-passagedata><tw-passagedata pid="32" name="C-paperwork" tags="" position="1102.5,402.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="33" name="C-time" tags="" position="1001.5,402.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="34" name="C-cancel" tags="" position="1000.5,299.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="35" name="Call Customer Care!" tags="" position="1250.5,276.5">What would you like to talk to Customer Care about?
 
 [[I have a question about my bill.|CC-bill]]
 [[I&#x27;m having a problem with my system.|CC-system]]
 [[Get these panels off my roof! I want to cancel!|CC-cancel]]
-</tw-passagedata><tw-passagedata pid="36" name="CC-bill" tags="" position="1288.5,397.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="37" name="CC-system" tags="" position="1401.5,399.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="38" name="CC-cancel" tags="" position="1398.5,298.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="ScheduleApp" tags="" position="499,2252">What day of the week works best?
+
+Use the back arrow to return.
+</tw-passagedata><tw-passagedata pid="36" name="CC-bill" tags="" position="1300.5,399.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="37" name="CC-system" tags="" position="1401.5,399.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="38" name="CC-cancel" tags="" position="1398.5,298.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="ScheduleApp" tags="" position="502,2125">What day of the week works best?
 &lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;monday&quot; checked&gt;&gt; Monday 
 &lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;tuesday&quot;&gt;&gt; Tuesday
 &lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;wednesday&quot;&gt;&gt; Wednesday
@@ -500,26 +549,36 @@ What time of day?
 &lt;&lt;radiobutton &quot;$timeofday&quot; &quot;noon&quot;&gt;&gt; Afternoon
 &lt;&lt;radiobutton &quot;$timeofday&quot; &quot;evening&quot;&gt;&gt; Evening
 
-[[Put me on the schedule!|NextSteps]]</tw-passagedata><tw-passagedata pid="40" name="NextSteps" tags="" position="373,2377">&lt;&lt;if $schedule == false&gt;&gt;That&#x27;s okay. You can use the MySolarCity App to schedule at your convenience. One of my teammates will be assigned as your personal Concierge, and they will call you to follow up within 24-48 hours to get you on the schedule if you haven&#x27;t done so yourself.&lt;&lt;elseif $schedule == true&gt;&gt;Great! We&#x27;ve got your Site Survey scheduled for $dayofweek.&lt;&lt;else&gt;&gt;Sorry, we weren&#x27;t able to get you on the schedule at this time. [[Go back and try again|ScheduleApp]].&lt;&lt;/if&gt;&gt;
+[[Put me on the schedule!|NextSteps]]</tw-passagedata><tw-passagedata pid="40" name="NextSteps" tags="" position="375,2255">&lt;&lt;set $callforhelp to &quot;concierge&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;journey1&quot;&gt;&gt;&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;That&#x27;s okay. You can use the MySolarCity App to schedule at your convenience. One of my teammates will be assigned as your personal Concierge, and they will call you to follow up within 24-48 hours to get you on the schedule if you haven&#x27;t done so yourself.&lt;&lt;elseif $schedule == true&gt;&gt;Great! We&#x27;ve got your Site Survey scheduled for $dayofweek.&lt;&lt;else&gt;&gt;Sorry, we weren&#x27;t able to get you on the schedule at this time. [[Go back and try again|ScheduleApp]].&lt;&lt;/if&gt;&gt;
 
 When the day of the survey comes, a member of our survey team will arrive during this 2-hour time window. They are going to verify if your home is compatible for an upgrade to solar power in its existing	condition. Once they arrive, the survey will usually last between 1 and 2 hours. They will take lots of pictures for our design team, inspect your electrical system, take measurements on the roof, and verify how much space you have on your roof for the panels. We take safety very seriously, so they will be	harnessed in and anchored to your roof. We want to make sure that your home can structurally support a solar system. So, they will need access to your attic or crawl space if you have one. If everything looks good, we will proceed to the next step and get started on the design. 
 
-Let me show a few more features of the MySolarCity App:
+&lt;&lt;linkappend &quot;Let me show you a few more features of the MySolarCity App.&quot;&gt;&gt;
 * On the day of your site survey, you can track the arrival of your surveyor in real-time.
 * The Document Portal lets us share documents with you - you can upload documentation for SolarCity, such as your utility bill, and we&#x27;ll also use this portal to send you documents to sign.
-* Anytime you think of someone we can help by going solar, you can enter their information in the app and it will get sent directly to me. We&#x27;ll give you $200 for everyone you refer that gets installed! You can track the progress of your referrals right here in the app.
+* Anytime you think of someone we can help by going solar, you can enter their information in the app and it will get sent directly to me. We&#x27;ll give you $200 for everyone you refer that gets installed! You can track the progress of your referrals right here in the app.&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;
 
 [[Great! What&#x27;s next?|Concierge]]
 
-</tw-passagedata><tw-passagedata pid="41" name="Concierge" tags="" position="374,2501">&lt;&lt;if $schedule == false&gt;&gt;As I mentioned before, one&lt;&lt;elseif $schedule = true&gt;&gt;One&lt;&lt;else&gt;&gt;One&lt;&lt;/if&gt; of my teammates will be assigned to you as your personal Concierge to help guide you through the entire process. They&#x27;ll &lt;&lt;if $contact == &quot;email&quot;&gt;&gt;email&lt;&lt;else&gt;&gt;call&lt;&lt;/if&gt;&gt; you within 24-48 hours to introduce themselves. &lt;&lt;if $schedule == false&gt;&gt;They will also help you schedule your site survey, if you haven&#x27;t yet done so. &lt;&lt;/if&gt;&gt;They will also call you from time to time if they have updates, or to let you know if there&#x27;s any action needed on your part. I will also be in contact with you throughout the process. Your Concierge and I work together with the goal of delivering the Perfect Customer Experience. If you ever need anything, please don&#x27;t hesitate to contact us at any time.
+</tw-passagedata><tw-passagedata pid="41" name="Concierge" tags="" position="374,2375">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;As I mentioned before, one&lt;&lt;else&gt;&gt;One&lt;&lt;/if&gt;&gt; of my teammates will be assigned to you as your personal Concierge to help guide you through the entire process. They&#x27;ll &lt;&lt;if $contact == &quot;email&quot;&gt;&gt;email&lt;&lt;else&gt;&gt;call&lt;&lt;/if&gt;&gt; you within 24-48 hours to introduce themselves. &lt;&lt;if $schedule == false&gt;&gt;They will also help you schedule your site survey, if you haven&#x27;t yet done so. &lt;&lt;/if&gt;&gt;They will also call you from time to time if they have updates, or to let you know if there&#x27;s any action needed on your part. I will also be in contact with you throughout the process. Your Concierge and I work together with the goal of delivering the Perfect Customer Experience. If you ever need anything, please don&#x27;t hesitate to contact us at any time.
 
-I&#x27;ll give you a call after your site survey to see how things went. At that time, we&#x27;ll schedule a date and time to go over your final design.
+I&#x27;ll give you a call after your site survey to see how things went. At that time, we&#x27;ll schedule a date and time to go over your final design.&lt;/div&gt;
 
-[[Sounds good! Talk to you soon!|WOWCall]]</tw-passagedata><tw-passagedata pid="42" name="WOWCall" tags="" position="373,2627">24 hours pass, you receive the Wow Call.
+[[Sounds good! Talk to you soon!|WOWCall]]</tw-passagedata><tw-passagedata pid="42" name="WOWCall" tags="" position="374,2501">&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Woohoo! Your Concierge has been assigned. 
+Eric Energy will be working alongside your Energy Consultant, Sally Sunshine.
+Before reaching out to you, Eric has a few things to do:
+* He can tell from the information that Sally entered into SolarWorks that you prefer to be contacted by PHONE/EMAIL, and that all of your contact information is present.
+* He can see that you DO/NOT have your Site Survey scheduled.
+* He can also see the utility bill that you EMAILED/GAVE to Sally.
+&lt;/p&gt;&lt;/div&gt;
+
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hi $name! I&#x27;m Eric Energy, your Solar Concierge from SolarCity. I work with Sally Sunshine, and I&#x27;m calling today to introduce myself and explain my role in getting your solar upgrade completed. I&#x27;m here to support you and Sally during the upgrade process. I WORK for YOU, and I will be your central point of contact in our main office, to make sure your upgrade moves along as quickly and smoothly as possible.
+&lt;/div&gt;
+
 
 Reschedule site survey?
 
-[[I&#x27;m getting excited about my Site Survey!|UBPage]]</tw-passagedata><tw-passagedata pid="43" name="UBPage" tags="" position="375,2751">Uh oh! Your Concierge calls to tell you a page of your utility bill was missing, and we need a new copy.
+[[I&#x27;m getting excited about my Site Survey!|UBPage]]</tw-passagedata><tw-passagedata pid="43" name="UBPage" tags="" position="253,2876">Uh oh! Your Concierge calls to tell you a page of your utility bill was missing, and we need a new copy.
 
 [[Thanks for following up, Concierge!|SiteSurvey]]</tw-passagedata><tw-passagedata pid="44" name="SiteSurvey" tags="" position="373,2873">The day is here! You track the survey crew on your MySolarCity App.
 
@@ -531,7 +590,25 @@ Reschedule site survey?
 </tw-passagedata><tw-passagedata pid="45" name="ReadPlan" tags="" position="624.5,2875.5">&lt;video src=&quot;https://britne.github.io/twine/How%20To%20Read%20Your%20Design.mp4&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;
 &lt;/video&gt;
 
-[[Design]]</tw-passagedata><tw-passagedata pid="46" name="Medallia - Journey to Install #1" tags="" position="674,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="47" name="Medallia - Journey to Install #2" tags="" position="800,151">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="48" name="Medallia - Journey to Install #3" tags="" position="926,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="49" name="Medallia - Journey to Install #4" tags="" position="1050,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="50" name="Medallia - Fallout" tags="" position="1351,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="51" name="Medallia - Relationship" tags="" position="1476,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="52" name="Medallia - Relationship Anniversary" tags="" position="1599,149">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="53" name="Medallia - Always On" tags="" position="1724,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;600&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;</tw-passagedata><tw-passagedata pid="54" name="Design" tags="" position="750.5,2875.5">Approve
+[[Design]]</tw-passagedata><tw-passagedata pid="46" name="Medallia - Journey to Install #1" tags="" position="674,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="47" name="Medallia - Journey to Install #2" tags="" position="800,151">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.
+
+</tw-passagedata><tw-passagedata pid="48" name="Medallia - Journey to Install #3" tags="" position="926,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="49" name="Medallia - Journey to Install #4" tags="" position="1050,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="50" name="Medallia - Fallout" tags="" position="1351,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="51" name="Medallia - Relationship" tags="" position="1476,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="52" name="Medallia - Relationship Anniversary" tags="" position="1599,149">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="53" name="Medallia - Always On" tags="" position="1724,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;600&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
+
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="54" name="Design" tags="" position="750.5,2875.5">Approve
 Change
 Deny
 
@@ -549,21 +626,84 @@ Sign all final documents
 </tw-passagedata><tw-passagedata pid="56" name="Install" tags="" position="998.5,2874.5">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dx_kKz1Vqm0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
 [[PTO]]</tw-passagedata><tw-passagedata pid="57" name="PTO" tags="" position="1123.5,2874.5">&lt;iframe src=&quot;https://player.vimeo.com/video/156790050?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-</tw-passagedata><tw-passagedata pid="58" name="StoryBanner" tags="" position="1001.5,2.5">&lt;img src=&quot;https://britne.github.io/twine/RISE6.png&quot; height=&quot;100&quot; width=&quot;120&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="StorySubtitle" tags="" position="899.5,0.5">CAMG RISE #6</tw-passagedata><tw-passagedata pid="60" name="StoryAuthor" tags="" position="797.5,0.5">brought to you by  
+</tw-passagedata><tw-passagedata pid="58" name="StoryBanner" tags="" position="595.5,0">&lt;img src=&quot;https://britne.github.io/twine/RISE6.png&quot; height=&quot;100&quot; width=&quot;120&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="StorySubtitle" tags="" position="797.5,0">CAMG RISE #6</tw-passagedata><tw-passagedata pid="60" name="StoryAuthor" tags="" position="898.5,0">brought to you by  
 CAMG Training</tw-passagedata><tw-passagedata pid="61" name="StoryTitle" tags="" position="697,0">The Job Flow</tw-passagedata><tw-passagedata pid="62" name="DesignTeam" tags="" position="500.5,2875.5">&lt;iframe src=&quot;https://player.vimeo.com/video/174845680?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-[[How do I read my plan?|ReadPlan]]</tw-passagedata><tw-passagedata pid="63" name="Looks" tags="" position="372,999">&lt;div class=&quot;talk&quot;&gt;That makes sense - I hear that concern a lot.
+[[How do I read my plan?|ReadPlan]]</tw-passagedata><tw-passagedata pid="63" name="Looks" tags="" position="372,999">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
 
 You&#x27;ll be happy to know our state-of-the-art mounting system is unmatched - in performance and style. I&#x27;ll make sure we cover that in detail for you.
 
 Hear what some existing customers have to say:
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/U45gkeFxaGk&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-What else is a concern?
+What else is a concern?&lt;/div&gt;
 [[I&#x27;m worried about my roof leaking.|Roof]]
 [[I&#x27;m wondering if I&#x27;ll actually save money.|Savings]]
 [[I don&#x27;t have other concerns at the moment.|None]]
-&lt;/div&gt;</tw-passagedata></tw-storydata></div>
+</tw-passagedata><tw-passagedata pid="64" name="Compare" tags="" position="526,1624">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Product Type&lt;/th&gt;
+    &lt;th&gt;PPA&lt;/th&gt;
+    &lt;th&gt;SolarLoan&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Finance Options&lt;/td&gt;
+    &lt;td&gt;Pay As You Go&lt;/td&gt;
+    &lt;td&gt;Lending Partner&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Monthly Payments&lt;/td&gt;
+    &lt;td&gt;$ per kWh x actual kWh output&lt;/td&gt;
+    &lt;td&gt;Principal + interest (optional 30% paydown)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;What You Pay For&lt;/td&gt;
+    &lt;td&gt;Electricity produced by the system&lt;/td&gt;
+    &lt;td&gt;The PV system itself&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Power Production Guarantee?&lt;/td&gt;
+    &lt;td&gt;no&lt;/td&gt;
+    &lt;td&gt;yes, 20 years&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Performance Guarantee?&lt;/td&gt;
+    &lt;td colspan=&quot;2&quot;&gt;yes&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Length of Contract&lt;/td&gt;
+    &lt;td&gt;20 years&lt;/td&gt;
+    &lt;td&gt;10 or 20 year loan term&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Purchase Option?&lt;/td&gt;
+    &lt;td&gt;yes&lt;/td&gt;
+    &lt;td&gt;no (customer owns)&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Roof Warranty?&lt;/td&gt;
+    &lt;td colspan=&quot;2&quot;&gt;yes&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Insurance?&lt;/td&gt;
+    &lt;td&gt;yes (see contract)&lt;/td&gt;
+    &lt;td&gt;no (customer owns)&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+[[Learn more about the PPA|PPA]]
+[[Learn more about the SolarLoan|SolarLoan]]
+
+
+</tw-passagedata><tw-passagedata pid="65" name="StoryCaption" tags="" position="999.5,0">Option Menu</tw-passagedata><tw-passagedata pid="66" name="Navigation Help" tags="" position="1401,0">&lt;&lt;linkappend &quot;I&#x27;m a link! Click here!&quot;&gt;&gt; Links will move the story forward.&lt;&lt;/linkappend&gt;&gt;
+
+The arrow buttons let you move backwards and forwards based on the story passages you have visited.
+
+You can save your progress (maybe before a big decision?) and return to your save point later.
+
+This sidebar menu will show you additional options, such as taking a survey or calling for help.
+
+Use the back arrow to return.</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS
 
