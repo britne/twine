@@ -111,8 +111,8 @@ img.lb { float: left; clear:both; margin: .5em; }
 p.lb { overflow: auto; margin: 0;}
 
 #menu li a { color: #4f504b; }
-
 #menu li a:hover { color: #F3F3EE; }
+#ui-bar-toggle { display: none; }
 
 tr:hover 
 { background-color: #fbb01b; 
@@ -137,6 +137,9 @@ th {
   background-position: center; 
   color: #4f504b; 
 }
+
+#ui-dialog-body { background-color: #F3F3EE; }
+button { background-color: #92C5ED; color: #4f504b; }
 
 .sales 
 { color: #634299; 
@@ -176,23 +179,22 @@ th {
   border-style: solid;
   border-color: #0BB340; 
   padding: .5em;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">predisplay["Menu Return"] = function (taskName) {
-	if (! tags().contains("noreturn")) {
-		State.variables.return = passage();
-	}
-};
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
 </script><tw-passagedata pid="1" name="Start" tags="" position="0,1">!!Welcome to RISE #6 - The Job Flow!
+This interactive story game will let you step into your customer&#x27;s shoes and explore the Job Flow from their point of view. 
 
-This interactive story game will let you step into your customer&#x27;s shoes and explore the Job Flow from their point of view. You&#x27;ll start as a prospective SolarCity customer. Each choice you make throughout the story game will change the outcome of your job.
+You&#x27;ll start as a prospective SolarCity customer. The choices you make throughout the story game will change the outcome of your job.
 
-Let&#x27;s get started! What should I call you? 
+Let&#x27;s get started! What should we call you? 
 Type your name in the box below.
 &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name&quot; autofocus&gt;&gt;
 
-[[Continue|Name]]</tw-passagedata><tw-passagedata pid="2" name="Name" tags="" position="126,1">Hello, $name!
+[[Click here to continue.|Name]]</tw-passagedata><tw-passagedata pid="2" name="Name" tags="" position="126,1">Hello, $name!
 
 Tell me about your house.
 
@@ -211,7 +213,7 @@ What about shading?
 
 This house needs solar!
 
-Your neighbor got his solar system through SolarCity and spoke very highly of the company. You decide to look into SolarCity too.
+Your neighbors got their solar system through SolarCity and spoke very highly of the company. You decide to look into SolarCity too.
 
 How do you want to learn more?
 &lt;&lt;link [[Visit the SolarCity Website|Web]]&gt;&gt;&lt;&lt;set $contact = &#x27;email&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -233,8 +235,8 @@ Site Survey scheduled in app?: &lt;&lt;print $schedule&gt;&gt;
 SS day: &lt;&lt;print $dayofweek&gt;&gt;
 SS time: &lt;&lt;print $timeofday&gt;&gt;
 
-Use the back arrow to return.</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="" position="1199,0">[[Navigation Help]]
-[[Check Variables Used|Variables]]
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="" position="1199,0">[[Check Variables Used|Variables]]
+[[Navigation Help]]
 
 &lt;&lt;if $callforhelp == &quot;concierge&quot;&gt;&gt;
 [[Call My Concierge!]]
@@ -272,7 +274,7 @@ You fill out the online form to get an appointment for an Energy Consultant to v
 
 [[I&#x27;m ready! Let&#x27;s get started!|Consultation]]</tw-passagedata><tw-passagedata pid="7" name="Phone" tags="" position="249,124">&lt;div class=&quot;sales&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Thank you for calling SolarCity, how may I assist you?
 Of course we can help you go solar! May I ask, how did you hear about us?
-Your neighbor? Fantastic!
+Your neighbors? Fantastic!
 Let me just ask you a few basic questions and I can get you in touch with an Energy Consultant...&lt;/div&gt;
 
 Your conversation with the Sales Team has you convinced that solar is right for your home.
@@ -351,7 +353,7 @@ sally.sunshine@solarcity.com
 
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hi $name, great to finally meet you in person! You have such a lovely home!
 
-I&#x27;ve learned a bit about you and your home through our conversations so far, but I&#x27;d like to start by &lt;&lt;linkappend &quot;sharing with you why I love what I do.&quot;&gt;&gt; One of the things I love most about my job is being able to make a different at so many levels. I love to sit down with people like you every day and help them take control of their energy costs. On a larger scale, we&#x27;re really making a difference in our communities and even globally. SolarCity is revolutionizing the way we produce energy and at the same time making an enormous impact environmentally.&lt;&lt;/linkappend&gt;&gt;
+I&#x27;ve learned a bit about you and your home through our conversations so far, but I&#x27;d like to start by &lt;&lt;linkappend &quot;sharing with you why I love what I do.&quot;&gt;&gt; One of the things I love most about my job is being able to make a difference at so many levels. I love to sit down with people like you every day and help them take control of their energy costs. On a larger scale, we&#x27;re really making a difference in our communities and even globally. SolarCity is revolutionizing the way we produce energy and at the same time making an enormous impact environmentally.&lt;&lt;/linkappend&gt;&gt;
 
 $name, my goal today is to see if solar makes sense for you. I&#x27;ll share an overview of SolarCity, guide you through our evaluation process and answer any questions you have. The good news is, we have a solution for almost everyone.
 
@@ -417,7 +419,6 @@ You have a lovely $roof roof! This material is durable enough to support solar p
 &lt;&lt;elseif $tree == &quot;several&quot;&gt;&gt;I see you have a lot of trees in the back yard. Tree shade will definitely affect solar production so I want to make sure I factor that into the design.
 &lt;&lt;elseif $tree == &quot;no&quot;&gt;&gt;I see you don&#x27;t have many trees. Tree shade can affect solar production so I always factor that into the design.
 &lt;&lt;else&gt;&gt;Tree shade can affect solar production so we factor that into the design.&lt;&lt;/if&gt;&gt;
-
 I think I have everything I need out here. Let&#x27;s head back inside to take a look at those pictures, and your most recent electricity bill.&lt;/div&gt;
 
 [[I&#x27;m geting excited! Show me how much I can save.|Consultation6]]
@@ -491,7 +492,7 @@ Does the PPA sound like it will work for you?&lt;/div&gt;
 
 If everything looks good, go ahead and sign your full name.&lt;/div&gt;
 
-Sign your &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;PPA&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;Solar Loan&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;contract in the box below:
+Sign your &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;PPA&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;Solar Loan&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt; contract by typing your name in the box below:
 
 &lt;&lt;textbox &quot;$sig&quot; &quot;&quot; &quot;Signature&quot; autofocus&gt;&gt;
 
@@ -522,34 +523,34 @@ The next step is your site survey - and you can schedule it right here in the My
 &lt;&lt;link [[Yes, let&#x27;s do it now!|ScheduleApp]]&gt;&gt;&lt;&lt;set $schedule == true&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I&#x27;ll have to look at my calendar. Can we do it later?|NextSteps]]&gt;&gt;&lt;&lt;set $schedule == false&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="31" name="Call My Concierge!" tags="" position="1148.5,275.5">What would you like to talk to your Concierge about?
+</tw-passagedata><tw-passagedata pid="31" name="Call My Concierge!" tags="" position="1148,275">What would you like to talk to your Concierge about?
 
 [[I have paperwork to submit.|C-paperwork]]
 [[I want to know what&#x27;s taking so long on my job!|C-time]]
 [[I want to cancel!|C-cancel]]
 
 Use the back arrow to return.
-</tw-passagedata><tw-passagedata pid="32" name="C-paperwork" tags="" position="1102.5,402.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="33" name="C-time" tags="" position="1001.5,402.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="34" name="C-cancel" tags="" position="1000.5,299.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="35" name="Call Customer Care!" tags="" position="1250.5,276.5">What would you like to talk to Customer Care about?
+</tw-passagedata><tw-passagedata pid="32" name="C-paperwork" tags="" position="1102,402">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="33" name="C-time" tags="" position="1001,402">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="34" name="C-cancel" tags="" position="1000,299">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="35" name="Call Customer Care!" tags="" position="1250,276">What would you like to talk to Customer Care about?
 
 [[I have a question about my bill.|CC-bill]]
 [[I&#x27;m having a problem with my system.|CC-system]]
 [[Get these panels off my roof! I want to cancel!|CC-cancel]]
 
 Use the back arrow to return.
-</tw-passagedata><tw-passagedata pid="36" name="CC-bill" tags="" position="1300.5,399.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="37" name="CC-system" tags="" position="1401.5,399.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="38" name="CC-cancel" tags="" position="1398.5,298.5">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="ScheduleApp" tags="" position="502,2125">What day of the week works best?
-&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;monday&quot; checked&gt;&gt; Monday 
-&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;tuesday&quot;&gt;&gt; Tuesday
-&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;wednesday&quot;&gt;&gt; Wednesday
-&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;thursday&quot;&gt;&gt; Thursday 
-&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;friday&quot;&gt;&gt; Friday
-&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;saturday&quot;&gt;&gt; Saturday
+</tw-passagedata><tw-passagedata pid="36" name="CC-bill" tags="" position="1300,399">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="37" name="CC-system" tags="" position="1401,399">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="38" name="CC-cancel" tags="" position="1398,298">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="ScheduleApp" tags="" position="502,2125">What day of the week works best?
+&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Monday&quot; checked&gt;&gt; Monday 
+&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Tuesday&quot;&gt;&gt; Tuesday
+&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Wednesday&quot;&gt;&gt; Wednesday
+&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Thursday&quot;&gt;&gt; Thursday 
+&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Friday&quot;&gt;&gt; Friday
+&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Saturday&quot;&gt;&gt; Saturday
 
 What time of day?
 &lt;&lt;radiobutton &quot;$timeofday&quot; &quot;morning&quot; checked&gt;&gt; Morning
-&lt;&lt;radiobutton &quot;$timeofday&quot; &quot;noon&quot;&gt;&gt; Afternoon
+&lt;&lt;radiobutton &quot;$timeofday&quot; &quot;afternoon&quot;&gt;&gt; Afternoon
 &lt;&lt;radiobutton &quot;$timeofday&quot; &quot;evening&quot;&gt;&gt; Evening
 
-[[Put me on the schedule!|NextSteps]]</tw-passagedata><tw-passagedata pid="40" name="NextSteps" tags="" position="375,2255">&lt;&lt;set $callforhelp to &quot;concierge&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;journey1&quot;&gt;&gt;&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;That&#x27;s okay. You can use the MySolarCity App to schedule at your convenience. One of my teammates will be assigned as your personal Concierge, and they will call you to follow up within 24-48 hours to get you on the schedule if you haven&#x27;t done so yourself.&lt;&lt;elseif $schedule == true&gt;&gt;Great! We&#x27;ve got your Site Survey scheduled for $dayofweek.&lt;&lt;else&gt;&gt;Sorry, we weren&#x27;t able to get you on the schedule at this time. [[Go back and try again|ScheduleApp]].&lt;&lt;/if&gt;&gt;
+&lt;&lt;link [[Put me on the schedule!|NextSteps]]&gt;&gt;&lt;&lt;set $schedule = true&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="NextSteps" tags="" position="375,2255">&lt;&lt;set $callforhelp to &quot;concierge&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;journey1&quot;&gt;&gt;&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;That&#x27;s okay. You can use the MySolarCity App to schedule at your convenience. One of my teammates will be assigned as your personal Concierge, and they will call you to follow up within 24-48 hours to get you on the schedule if you haven&#x27;t done so yourself.&lt;&lt;elseif $schedule == true&gt;&gt;Great! We&#x27;ve got your Site Survey scheduled for $dayofweek $timeofday.&lt;&lt;else&gt;&gt;Sorry, we weren&#x27;t able to get you on the schedule at this time. [[Go back and try again|ScheduleApp]].&lt;&lt;/if&gt;&gt;
 
 When the day of the survey comes, a member of our survey team will arrive during this 2-hour time window. They are going to verify if your home is compatible for an upgrade to solar power in its existing	condition. Once they arrive, the survey will usually last between 1 and 2 hours. They will take lots of pictures for our design team, inspect your electrical system, take measurements on the roof, and verify how much space you have on your roof for the panels. We take safety very seriously, so they will be	harnessed in and anchored to your roof. We want to make sure that your home can structurally support a solar system. So, they will need access to your attic or crawl space if you have one. If everything looks good, we will proceed to the next step and get started on the design. 
 
@@ -560,16 +561,16 @@ When the day of the survey comes, a member of our survey team will arrive during
 
 [[Great! What&#x27;s next?|Concierge]]
 
-</tw-passagedata><tw-passagedata pid="41" name="Concierge" tags="" position="374,2375">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;As I mentioned before, one&lt;&lt;else&gt;&gt;One&lt;&lt;/if&gt;&gt; of my teammates will be assigned to you as your personal Concierge to help guide you through the entire process. They&#x27;ll &lt;&lt;if $contact == &quot;email&quot;&gt;&gt;email&lt;&lt;else&gt;&gt;call&lt;&lt;/if&gt;&gt; you within 24-48 hours to introduce themselves. &lt;&lt;if $schedule == false&gt;&gt;They will also help you schedule your site survey, if you haven&#x27;t yet done so. &lt;&lt;/if&gt;&gt;They will also call you from time to time if they have updates, or to let you know if there&#x27;s any action needed on your part. I will also be in contact with you throughout the process. Your Concierge and I work together with the goal of delivering the Perfect Customer Experience. If you ever need anything, please don&#x27;t hesitate to contact us at any time.
+</tw-passagedata><tw-passagedata pid="41" name="Concierge" tags="" position="374,2375">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;As I mentioned before, one&lt;&lt;else&gt;&gt;One&lt;&lt;/if&gt;&gt; of my teammates will be assigned to you as your personal Concierge to help guide you through the entire process. They&#x27;ll call you within 24-48 hours to introduce themselves. &lt;&lt;if $schedule == false&gt;&gt;They will also help you schedule your site survey, if you haven&#x27;t yet done so. &lt;&lt;/if&gt;&gt;They will also call you from time to time if they have updates, or to let you know if there&#x27;s any action needed on your part. I will also be in contact with you throughout the process. Your Concierge and I work together with the goal of delivering the Perfect Customer Experience. If you ever need anything, please don&#x27;t hesitate to contact us at any time.
 
 I&#x27;ll give you a call after your site survey to see how things went. At that time, we&#x27;ll schedule a date and time to go over your final design.&lt;/div&gt;
 
 [[Sounds good! Talk to you soon!|WOWCall]]</tw-passagedata><tw-passagedata pid="42" name="WOWCall" tags="" position="374,2501">&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Woohoo! Your Concierge has been assigned. 
 Eric Energy will be working alongside your Energy Consultant, Sally Sunshine.
-Before reaching out to you, Eric has a few things to do:
-* He can tell from the information that Sally entered into SolarWorks that you prefer to be contacted by PHONE/EMAIL, and that all of your contact information is present.
-* He can see that you DO/NOT have your Site Survey scheduled.
-* He can also see the utility bill that you EMAILED/GAVE to Sally.
+Before reaching out to you with a WOW Call, Eric has a few things to do:
+* He can tell from the information that Sally entered into SolarWorks that you prefer to be contacted by $contact, and that all of your contact information is present.
+* He can see that you &lt;&lt;if $scheduled == true&gt;&gt;have your Site Survey scheduled for $dayofweek $timeofday.&lt;&lt;else&gt;&gt;don&#x27;t yet have your Site Survey scheduled, so he knows to help you with that on the call.&lt;&lt;/if&gt;&gt;
+* He can also see the utility bill that you shared with Sally.
 &lt;/p&gt;&lt;/div&gt;
 
 &lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hi $name! I&#x27;m Eric Energy, your Solar Concierge from SolarCity. I work with Sally Sunshine, and I&#x27;m calling today to introduce myself and explain my role in getting your solar upgrade completed. I&#x27;m here to support you and Sally during the upgrade process. I WORK for YOU, and I will be your central point of contact in our main office, to make sure your upgrade moves along as quickly and smoothly as possible.
@@ -587,7 +588,7 @@ Reschedule site survey?
 
 [[What next?|DesignTeam]]
 
-</tw-passagedata><tw-passagedata pid="45" name="ReadPlan" tags="" position="624.5,2875.5">&lt;video src=&quot;https://britne.github.io/twine/How%20To%20Read%20Your%20Design.mp4&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;
+</tw-passagedata><tw-passagedata pid="45" name="ReadPlan" tags="" position="624,2875">&lt;video src=&quot;https://britne.github.io/twine/How%20To%20Read%20Your%20Design.mp4&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;
 &lt;/video&gt;
 
 [[Design]]</tw-passagedata><tw-passagedata pid="46" name="Medallia - Journey to Install #1" tags="" position="674,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;500&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
@@ -608,7 +609,7 @@ Use the back arrow to return.</tw-passagedata><tw-passagedata pid="52" name="Med
 
 Use the back arrow to return.</tw-passagedata><tw-passagedata pid="53" name="Medallia - Always On" tags="" position="1724,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;600&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
 
-Use the back arrow to return.</tw-passagedata><tw-passagedata pid="54" name="Design" tags="" position="750.5,2875.5">Approve
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="54" name="Design" tags="" position="750,2875">Approve
 Change
 Deny
 
@@ -617,17 +618,17 @@ Additional Docs?
 
 HOA Requirements?
 
-[[FinalContract]]</tw-passagedata><tw-passagedata pid="55" name="FinalContract" tags="" position="874.5,2876.5">&lt;&lt;set $medallia to &quot;journey3&quot;&gt;&gt;
+[[FinalContract]]</tw-passagedata><tw-passagedata pid="55" name="FinalContract" tags="" position="874,2876">&lt;&lt;set $medallia to &quot;journey3&quot;&gt;&gt;
 
 Sign all final documents
 
 [[Install]]
 
-</tw-passagedata><tw-passagedata pid="56" name="Install" tags="" position="998.5,2874.5">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dx_kKz1Vqm0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</tw-passagedata><tw-passagedata pid="56" name="Install" tags="" position="998,2874">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dx_kKz1Vqm0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-[[PTO]]</tw-passagedata><tw-passagedata pid="57" name="PTO" tags="" position="1123.5,2874.5">&lt;iframe src=&quot;https://player.vimeo.com/video/156790050?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-</tw-passagedata><tw-passagedata pid="58" name="StoryBanner" tags="" position="595.5,0">&lt;img src=&quot;https://britne.github.io/twine/RISE6.png&quot; height=&quot;100&quot; width=&quot;120&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="StorySubtitle" tags="" position="797.5,0">CAMG RISE #6</tw-passagedata><tw-passagedata pid="60" name="StoryAuthor" tags="" position="898.5,0">brought to you by  
-CAMG Training</tw-passagedata><tw-passagedata pid="61" name="StoryTitle" tags="" position="697,0">The Job Flow</tw-passagedata><tw-passagedata pid="62" name="DesignTeam" tags="" position="500.5,2875.5">&lt;iframe src=&quot;https://player.vimeo.com/video/174845680?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+[[PTO]]</tw-passagedata><tw-passagedata pid="57" name="PTO" tags="" position="1123,2874">&lt;iframe src=&quot;https://player.vimeo.com/video/156790050?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+</tw-passagedata><tw-passagedata pid="58" name="StoryBanner" tags="" position="595,0">&lt;img src=&quot;https://britne.github.io/twine/RISE6.png&quot; height=&quot;100&quot; width=&quot;120&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="StorySubtitle" tags="" position="797,0">CAMG RISE #6</tw-passagedata><tw-passagedata pid="60" name="StoryAuthor" tags="" position="898,0">brought to you by  
+CAMG Training</tw-passagedata><tw-passagedata pid="61" name="StoryTitle" tags="" position="697,0">The Job Flow</tw-passagedata><tw-passagedata pid="62" name="DesignTeam" tags="" position="500,2875">&lt;iframe src=&quot;https://player.vimeo.com/video/174845680?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
 [[How do I read my plan?|ReadPlan]]</tw-passagedata><tw-passagedata pid="63" name="Looks" tags="" position="372,999">&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
 
@@ -695,15 +696,21 @@ What else is a concern?&lt;/div&gt;
 [[Learn more about the SolarLoan|SolarLoan]]
 
 
-</tw-passagedata><tw-passagedata pid="65" name="StoryCaption" tags="" position="999.5,0">Option Menu</tw-passagedata><tw-passagedata pid="66" name="Navigation Help" tags="" position="1401,0">&lt;&lt;linkappend &quot;I&#x27;m a link! Click here!&quot;&gt;&gt; Links will move the story forward.&lt;&lt;/linkappend&gt;&gt;
+</tw-passagedata><tw-passagedata pid="65" name="StoryCaption" tags="" position="999,0">Option Menu</tw-passagedata><tw-passagedata pid="66" name="Navigation Help" tags="" position="1401,0">!!Navigation Help
+!!!!This help section will always be available in the sidebar.
+!!!!Use the back arrow to return.
+&lt;&lt;linkappend &quot;I&#x27;m a link! Click here!&quot;&gt;&gt; Links will move the story forward.&lt;&lt;/linkappend&gt;&gt;
 
-The arrow buttons let you move backwards and forwards based on the story passages you have visited.
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/arrows.png&quot; height=&quot;40&quot; width=&quot;100&quot;&gt;The arrow buttons let you move backwards and forwards based on the story passages you have visited.
 
-You can save your progress (maybe before a big decision?) and return to your save point later.
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/optionmenu.png&quot; height=&quot;150&quot; width=&quot;200&quot;&gt;The sidebar menu will show you additional options, such as taking a survey or calling for help, based on where you are in the story.
 
-This sidebar menu will show you additional options, such as taking a survey or calling for help.
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/savemenu.png&quot; height=&quot;75&quot; width=&quot;200&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/save.png&quot; height=&quot;200&quot; width=&quot;200&quot;&gt;You can save your progress (maybe before a big decision?) and return to your save point later. 
 
-Use the back arrow to return.</tw-passagedata></tw-storydata></div>
+Note that the game saves on a computer-by-computer basis. If you resume the game on a different computer, your progress will not be saved. 
+
+You can restart the story from the beginning at any time.
+</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS
 
