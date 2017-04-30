@@ -121,22 +121,9 @@ hr { border-top: 2px solid #0BB340; }
 #menu li a { color: #4f504b; }
 #menu li a:hover { color: #F3F3EE; }
 
-tr:hover 
-{ background-color: #fbb01b; 
-  color: #ffffff;
-}
+tr:hover { background-color: #F1CD33; color: #4f504b; }
 
-table, td, th 
-{ border: 1px solid #000000; 
-  border-collapse: collapse;
-  text-align: left;
-  padding: 5px;
-}
-
-th {
-    background-color: #0BB340;
-    color: #ffffff;
-}
+#ui-dialog-titlebar { background-color: #F1CD33; }
 
 #ui-bar
 { background-image: url("https://britne.github.io/twine/RISE6bg.png") ; 
@@ -154,15 +141,6 @@ input:hover, input:focus
   color: #4f504b;
 }
 
-.sales 
-{ color: #634299; 
-  font-style: italic;
-  background-color: #ffffff;  
-  border-style: solid;
-  border-color: #634299; 
-  border-radius: 1em; 
-  padding: .5em;
-}
 .EC 
 { color: #CF8B02; 
   background-color: #ffffff;  
@@ -179,6 +157,30 @@ input:hover, input:focus
   border-radius: 1em; 
   padding: .5em;
 }
+.care 
+{ color: #634299; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #634299; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.bts 
+{ color: #0BB340; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #0BB340; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.other 
+{ color: #16b5c9; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #16b5c9; 
+  border-radius: 1em; 
+  padding: .5em;
+}
 .email 
 { color: #000000; 
   background-color: #ffffff;  
@@ -189,21 +191,13 @@ input:hover, input:focus
   width: 75%;
   margin: auto;
 }
-.bts 
-{ color: #0BB340; 
-  background-color: #ffffff;  
-  border-style: solid;
-  border-color: #0BB340; 
-  border-radius: 1em; 
-  padding: .5em;
-}
-
 
 
 
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -262,17 +256,23 @@ Online Utility Bill: &lt;&lt;print $ub&gt;&gt;
 Others Interested?: &lt;&lt;print $others&gt;&gt;
 How long to stay in home?: &lt;&lt;print $time&gt;&gt;
 Want to own system?: &lt;&lt;print $own&gt;&gt;
+Have HOA?: &lt;&lt;print $hoa&gt;&gt;
 Have tax liability?: &lt;&lt;print $tax&gt;&gt;
 Contract Choice: &lt;&lt;print $contract&gt;&gt;
 Name on Credit Check: &lt;&lt;print $credit&gt;&gt;
-Name on Contract: &lt;&lt;print $sig&gt;&gt;
+Signature on Initial Contract: &lt;&lt;print $sig&gt;&gt;
 Who can they call?: &lt;&lt;print $callforhelp&gt;&gt;
+Who caused cancel?: &lt;&lt;print $cancel&gt;&gt;
 Medallia status: &lt;&lt;print $medallia&gt;&gt;
 Site Survey scheduled in app?: &lt;&lt;print $schedule&gt;&gt;
 SS day: &lt;&lt;print $dayofweek&gt;&gt;
 SS time: &lt;&lt;print $timeofday&gt;&gt;
 Work needed (randomizer): &lt;&lt;print $work&gt;&gt;
 Timeline checkpoint: &lt;&lt;print $timeline&gt;&gt;
+Redesigned?: &lt;&lt;print $redesign&gt;&gt;
+Signature on Final Contract: &lt;&lt;print $sig2&gt;&gt;
+Install day: &lt;&lt;print $dayofweek2&gt;&gt;
+Install time: &lt;&lt;print $timeofday2&gt;&gt;
 Installed?: &lt;&lt;print $install&gt;&gt;
 
 Use the back arrow to return.</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="" position="1199,0">[[Check Variables Used|Variables]]
@@ -308,25 +308,19 @@ No current Medallia option.
 
 &lt;iframe src=&quot;https://player.vimeo.com/video/139361764?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-Your research on the website has you convinced that solar is right for your home.
+Your research on the website has you convinced that solar is right for your home. You fill out the online form to get an appointment for an Energy Consultant to visit in a few days.
 
-You fill out the online form to get an appointment for an Energy Consultant to visit your home.
-
-[[I&#x27;m ready! Let&#x27;s get started!|PreConsultation]]</tw-passagedata><tw-passagedata pid="7" name="Phone" tags="" position="249,124">&lt;&lt;set $contact to &#x27;phone&#x27;&gt;&gt;&lt;div class=&quot;sales&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Thank you for calling SolarCity, how may I assist you?
+[[I&#x27;m ready! Let&#x27;s get started!|PreConsultation]]</tw-passagedata><tw-passagedata pid="7" name="Phone" tags="" position="249,124">&lt;&lt;set $contact to &#x27;phone&#x27;&gt;&gt;&lt;div class=&quot;other&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Thank you for calling SolarCity, how may I assist you?
 Of course we can help you go solar! May I ask, how did you hear about us?
 Your neighbors? Fantastic!
 Let me just ask you a few basic questions and I can get you in touch with an Energy Consultant...&lt;/div&gt;
-Your conversation with the Sales Team has you convinced that solar is right for your home.
-
-You end the call with an appointment set for an Energy Consultant to visit your home.
+Your conversation with the Sales Team has you convinced that solar is right for your home. You end the call with an appointment set for an Energy Consultant to visit in a few days.
 
 [[I&#x27;m ready! Let&#x27;s get started!|PreConsultation]]</tw-passagedata><tw-passagedata pid="8" name="Visit" tags="" position="377,126">&lt;&lt;set $contact to &#x27;visit&#x27;&gt;&gt;Watch the video to learn more:
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CFI8XPcg67U&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-Your conversation with the Home Depot Energy Consultant has you convinced that solar is right for your home.
-
-You leave Home Depot with an appointment set for an Energy Consultant to visit your home.
+Your conversation with the Home Depot Energy Consultant has you convinced that solar is right for your home. You leave Home Depot with an appointment set for an Energy Consultant to visit in a few days.
 
 [[I&#x27;m ready! Let&#x27;s get started!|PreConsultation]]</tw-passagedata><tw-passagedata pid="9" name="PreConsultation" tags="" position="251,254">&lt;&lt;set $medallia to &quot;active&quot;&gt;&gt;The next day, you receive a call.
 
@@ -375,14 +369,15 @@ $name, my goal today is to see if solar makes sense for you. I&#x27;ll share an 
 I&#x27;d like to ask you a few questions to better understand your situation and find the solution that works for you. Is that okay?&lt;/div&gt;
 [[Of course!|Concerns]]
 </tw-passagedata><tw-passagedata pid="12" name="Concerns" tags="" position="376,526">Sally Sunshine says:
-&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;First of all, do you have any specific concerns or questions? I want to make sure we address them today.
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;First of all, do you have any specific concerns or questions? 
+I want to make sure we address them today.
 &lt;/div&gt;
 [[I&#x27;m worried about my roof leaking.|Roof]]
 [[I&#x27;m wondering if I&#x27;ll actually save money.|Savings]]
 [[Aren&#x27;t solar panels ugly?|Looks]]
 [[I don&#x27;t have any specific concerns at the moment.|None]]
-</tw-passagedata><tw-passagedata pid="13" name="Roof" tags="" position="200,655">Sally Sunshine says:
-&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
+</tw-passagedata><tw-passagedata pid="13" name="Roof" tags="" position="200,652">Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - &lt;&lt;if hasVisited(&quot;Looks&quot;)&gt;&gt;I&#x27;ve heard that concern, too.&lt;&lt;elseif hasVisited(&quot;Savings&quot;)&gt;&gt;I&#x27;ve heard that concern, too.&lt;&lt;else&gt;&gt;I hear that a lot.&lt;&lt;/if&gt;&gt;
 
 So, if I&#x27;m understanding your concern, you want to make sure that if the panels cause your roof to leak, there is a warranty in place to protect you and your investment in your home. 
 
@@ -398,7 +393,7 @@ What else is a concern?&lt;/div&gt;
 
 
 </tw-passagedata><tw-passagedata pid="14" name="Savings" tags="" position="325,653">Sally Sunshine says:
-&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - &lt;&lt;if hasVisited(&quot;Looks&quot;)&gt;&gt;I&#x27;ve heard that concern, too.&lt;&lt;elseif hasVisited(&quot;Roof&quot;)&gt;&gt;I&#x27;ve heard that concern, too.&lt;&lt;else&gt;&gt;I hear that a lot.&lt;&lt;/if&gt;&gt;
 
 There are many different ways that solar can benefit you financially. I&#x27;ll make sure we cover that in detail for you.
 
@@ -466,19 +461,23 @@ At SolarCity, we offer a better way. We generate electricity on your roof, send 
 So we have a couple different solutions that can help you. I just have a few questions I’d like to ask that will guide us toward the best fit.&lt;/div&gt;
 [[Sounds good!|ContractQuestions]]
 </tw-passagedata><tw-passagedata pid="19" name="ContractQuestions" tags="" position="451,1025">Sally Sunshine says:
-&lt;div class = &quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;How long do you plan to stay in your home?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$time&quot; &quot;forever&quot; checked&gt;&gt;This is my dream home - I&#x27;m here forever!
-&lt;&lt;radiobutton &quot;$time&quot; &quot;someday&quot;&gt;&gt;I have no plans to move, but I&#x27;m not opposed to moving someday.
-&lt;&lt;radiobutton &quot;$time&quot; &quot;soon&quot;&gt;&gt;I&#x27;m looking to buy a new home in the near future.&lt;/p&gt;Is owning the solar system important to you?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$own&quot; &quot;yes&quot; checked&gt;&gt;Yes, I want to own my investment.
-&lt;&lt;radiobutton &quot;$own&quot; &quot;no&quot;&gt;&gt;No, I don&#x27;t need to own it, just save me some money on my electric bill!&lt;/p&gt;You might be able to take advantage of the Investment Tax Credit. Are you currently paying income tax?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$tax&quot; &quot;yes&quot; checked&gt;&gt;Yes, I work and pay income taxes.
-&lt;&lt;radiobutton &quot;$tax&quot; &quot;no&quot;&gt;&gt;No, I don&#x27;t have a tax liability.&lt;/p&gt;&lt;/div&gt;
+&lt;div class = &quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;How long do you plan to stay in your home?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$time&quot; &quot;forever&quot; checked&gt;&gt; This is my dream home - I&#x27;m here forever!
+&lt;&lt;radiobutton &quot;$time&quot; &quot;someday&quot;&gt;&gt; I have no plans to move, but I&#x27;m not opposed to moving someday.
+&lt;&lt;radiobutton &quot;$time&quot; &quot;soon&quot;&gt;&gt; I&#x27;m looking to buy a new home in the near future.&lt;/p&gt;Is owning the solar system important to you?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$own&quot; &quot;yes&quot; checked&gt;&gt; Yes, I want to own my investment.
+&lt;&lt;radiobutton &quot;$own&quot; &quot;no&quot;&gt;&gt; No, I don&#x27;t need to own it, just save me some money on my electric bill!&lt;/p&gt;Is your home part of a Homeowner&#x27;s Association (HOA)?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$hoa&quot; &quot;yes&quot; checked&gt;&gt; Yes, I have a Homeowner&#x27;s Association.
+&lt;&lt;radiobutton &quot;$hoa&quot; &quot;no&quot;&gt;&gt; No, there isn&#x27;t a Homeowner&#x27;s Association.&lt;/p&gt;You might be able to take advantage of the Investment Tax Credit. 
+Are you currently paying income tax?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$tax&quot; &quot;yes&quot; checked&gt;&gt; Yes, I work and pay income taxes.
+&lt;&lt;radiobutton &quot;$tax&quot; &quot;no&quot;&gt;&gt; No, I don&#x27;t have a tax liability.&lt;/p&gt;&lt;/div&gt;
 [[Which contract type is right for me?|Contract]]
-</tw-passagedata><tw-passagedata pid="20" name="Contract" tags="" position="447,1150">Sally Sunshine says:
+</tw-passagedata><tw-passagedata pid="20" name="Contract" tags="" position="452,1151">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Based on what you&#x27;ve told me, it definitely seems like we have a solution for you.
 
 &lt;&lt;if $time == &quot;forever&quot;&gt;&gt;Since you plan to stay in your home for many years, you&#x27;d benefit from locking in your electricity rates now.&lt;&lt;elseif $time == &quot;someday&quot;, &quot;soon&quot;&gt;&gt;If you don&#x27;t stay in this home, there are several options available. You may be able to transfer the system to the new homeowner, or move the system to your new home. We have an excellent Contract Reassignment team that can help you work with the real estate agents and lenders involved, should you decide to move someday.&lt;&lt;else&gt;&gt;No matter how long you plan to stay in your home, solar is a great choice.&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $own == &quot;yes&quot;&gt;&gt;We have a great option if you&#x27;re interested in owning your system, but don&#x27;t have the cash available up front. We work with solar lending partners to help you finance your system.&lt;&lt;elseif $own == &quot;no&quot;&gt;&gt;If owning the system isn&#x27;t as important, we have options where you can just purchase the power you generate, and SolarCity will own the system.&lt;&lt;else&gt;&gt;We have options where you can own your system outright, or just purchase the power from a system SolarCity owns.&lt;&lt;/if&gt;&gt;
 
+&lt;&lt;if $hoa == &quot;yes&quot;&gt;&gt;We have a dedicated team experienced in handling paperwork and issues that can arise when dealing with your HOA. Rest assured, we&#x27;re here to support you throughout the process.
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $tax == &quot;yes&quot;&gt;&gt;Since you have a tax liability, you may be able to benefit from the Investment Tax Credit. Purchasing the system may have tax savings for you.&lt;&lt;elseif $tax == &quot;no&quot;&gt;&gt;
 Since you don&#x27;t currently have a tax liability, owning a system may not make the most sense for your situation. Consult a tax advisor for more specific details, but purchasing only the power you use might be your best bet.&lt;&lt;else&gt;&gt;A tax advisor can help explain the current incentives that are available to you.&lt;&lt;/if&gt;&gt;
 
@@ -486,7 +485,7 @@ I&#x27;ll make some adjustments to the design based on what I saw outside, and t
 &lt;&lt;link [[I like the sound of SolarLoan, can you tell me more?|SolarLoan]]&gt;&gt;&lt;&lt;set $contract = &#x27;loan&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I like the sound of the Power Purchase Agreement, can you tell me more?|PPA]]&gt;&gt;&lt;&lt;set $contract = &#x27;ppa&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 [[I&#x27;m still not sure. Can I compare my options?|Compare]]
-</tw-passagedata><tw-passagedata pid="21" name="SolarLoan" tags="" position="625,1274">Sally Sunshine says:
+</tw-passagedata><tw-passagedata pid="21" name="SolarLoan" tags="" position="601,1275">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if visited(&quot;PPA&quot;)&gt;&gt;If I&#x27;m understanding you correctly, it sounds like the Power Purchase Agreement wasn&#x27;t the best fit. &lt;&lt;/if&gt;&gt;Let&#x27;s take a look at the Solar Loan proposal.
 
 According to your current utility bill, you&#x27;re paying about $120 per month with your utility, and it&#x27;s uncertain how much that will be in the future.
@@ -501,7 +500,7 @@ The best part is, you&#x27;re eligible for a $9,000 tax credit. So you&#x27;re l
 &lt;&lt;link [[Perfect! Solar Loan sounds great!|CreditCheck]]&gt;&gt;&lt;&lt;set $contract = &#x27;loan&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I&#x27;m not sure. Can you tell me more about the PPA?|PPA]]&gt;&gt;&lt;&lt;set $contract = &#x27;ppa&#x27;&gt;&gt;&lt;&lt;/link&gt;&gt;
 [[Can I see a comparison chart?|Compare]]
-</tw-passagedata><tw-passagedata pid="22" name="PPA" tags="" position="502,1275">Sally Sunshine says:
+</tw-passagedata><tw-passagedata pid="22" name="PPA" tags="" position="477,1275">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if visited(&quot;SolarLoan&quot;)&gt;&gt;If I&#x27;m understanding you correctly, it sounds like the Solar Loan contract wasn&#x27;t the best fit. &lt;&lt;/if&gt;&gt;Let&#x27;s take a look at the Power Purchase Agreement (PPA) proposal.
 
 With this type of contract, you make your own power with a system SolarCity owns, and only pay for the energy you use. Rather than pay your utility and watch your bill go up year after year, now you can take control of your energy costs and know exactly what you&#x27;re paying for the next 20 years.
@@ -525,16 +524,15 @@ Agree to the credit check by typing your name in the box below:
 Thank you,
 SolarCity
 &lt;/div&gt;
-[[Check my credit.|Agreement]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Agreement" tags="" position="400,1400">Sally Sunshine says:
+[[Check my credit.|Agreement]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Agreement" tags="" position="401,1400">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;You&#x27;re approved! Here is your customized agreement. Go ahead and review it, below.
 
 &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;&lt;img src=&quot;https://britne.github.io/twine/ppa.png&quot; width=&quot;600&quot;&gt;&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;&lt;img src=&quot;https://britne.github.io/twine/loan.png&quot; width=&quot;600&quot;&gt;&lt;&lt;else&gt;&gt;I&#x27;m sorry, I wasn&#x27;t able to pull up your contract. Try going back to the [[Contract Choice page|Contract]] and selecting your contract type again.&lt;&lt;/if&gt;&gt;
 
 If everything looks good, go ahead and sign your full name.&lt;/div&gt;
-
 Sign your &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;PPA&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;Solar Loan&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt; contract by typing your name in the box below:
 
-&lt;&lt;textbox &quot;$sig&quot; &quot;&quot; &quot;Signature&quot; autofocus&gt;&gt;
+&lt;&lt;textbox &quot;$sig&quot; &quot;&quot; &quot;Signature&quot;&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Sign my contract!&quot;&gt;&gt;
 &lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-2.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Hi there, $name! 
@@ -543,7 +541,7 @@ I&#x27;ll be giving you a &quot;sneak peek&quot; behind the scenes at SolarCity.
 You must really be a VIP customer - because I don&#x27;t get to meet everyone.
 Whenever you see me around, you know you&#x27;re getting the inside scoop on your job.
 See you soon!&lt;/p&gt;&lt;/div&gt;
-[[Thanks for the info, Luis!|JobNumber]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="JobNumber" tags="" position="401,1525">Sally Sunshine says:
+[[Thanks for the info, Luis!|JobNumber]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="JobNumber" tags="" position="350,1527">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Okay, great! The final steps are to schedule your site survey and set up your MySolarCity account. 
 
 Let me share the steps of our installation process. 
@@ -554,7 +552,7 @@ Let me share the steps of our installation process.
 
 Once we have the permit, we can schedule your installation, which will only take a day or two. Our goal is to have your system installed within a few months.
 
-After the system has been installed, they will come out to verify all of our work is up to code. Now here’s the best part, we take that final permit to the utility and that permit requires them to place a meter on your home that gives you credit for all of the power your system generates that you don’t immediately use. This is called Net Metering.&lt;/div&gt;
+After the system has been installed, there will be an inspection to verify all of our work is up to code. Now here’s the best part, we take the final permit to the utility and that permit requires them to place a meter on your home that gives you credit for all of the power your system generates that you don’t immediately use. This is called Net Metering.&lt;/div&gt;
 [[Awesome!|MySolarCity]]</tw-passagedata><tw-passagedata pid="26" name="MySolarCity" tags="" position="526,1524">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;What’s great is you can always see the status of your job in the MySolarCity App. In fact, let’s download the app right now and I’ll walk you through how it works.
 
@@ -564,36 +562,50 @@ The next step is your site survey - and you can schedule it right here in the My
 &lt;&lt;link [[Yes, let&#x27;s do it now!|Schedule]]&gt;&gt;&lt;&lt;set $schedule == true&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link [[I&#x27;ll have to look at my calendar. Can we do it later?|NextSteps]]&gt;&gt;&lt;&lt;set $schedule == false&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="27" name="Call My Concierge!" tags="" position="1149,276">What would you like to talk to your Concierge about?
+</tw-passagedata><tw-passagedata pid="27" name="Call My Concierge!" tags="" position="1128,400">Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Thank you for calling SolarCity. All calls are recorded for quality and training purposes. This is Eric, how can I assist you today?&lt;/div&gt;
 
 [[I want to refer someone to SolarCity.|Referral]]
 [[I have paperwork to submit.|C-paperwork]]
 [[I want to know what&#x27;s taking so long on my job!|C-time]]
-[[I want to cancel!|SaveDesk]]
+&lt;&lt;if $hoa == &quot;yes&quot;&gt;&gt;[[I&#x27;m having problems with my HOA.|C-HOA]]&lt;&lt;/if&gt;&gt;
+[[I want to cancel!|Retention]]
 
-Use the back arrow to return.
-</tw-passagedata><tw-passagedata pid="28" name="C-paperwork" tags="" position="1024,378">Use the back arrow to return to where you were before you called.</tw-passagedata><tw-passagedata pid="29" name="C-time" tags="" position="1024,277">Eric Energy says:
+&lt;&lt;click &quot;Never mind, just calling to say hello!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;
+</tw-passagedata><tw-passagedata pid="28" name="C-paperwork" tags="" position="1028,274">Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Great!
+Go ahead and log in to your MySolarCity account.
+You can upload all of your documents easily in one place.&lt;/div&gt;
+&lt;&lt;click &quot;Thanks, Eric!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="C-time" tags="" position="901,275">Eric Energy says:
 &lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;You want to know about your timeline?
 &lt;&lt;if $timeline == &quot;1&quot;&gt;&gt;We&#x27;ve only just started! We&#x27;re on track to finish your project &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;within 60 days&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;within 30 days&lt;&lt;else&gt;&gt;as soon as possible&lt;&lt;/if&gt;&gt;.
 &lt;&lt;else&gt;&gt;I&#x27;m not exactly sure. Can I place you on hold?
 &lt;&lt;/if&gt;&gt;&lt;/div&gt;
-
-Use the back arrow to return to where you were before you called.</tw-passagedata><tw-passagedata pid="30" name="Call Customer Care!" tags="" position="1250,276">What would you like to talk to Customer Care about?
+&lt;&lt;click &quot;Thanks, Eric!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Call Customer Care!" tags="" position="1275,400">&lt;&lt;set $cancel to &quot;care&quot;&gt;&gt;Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Thank you for calling SolarCity. All calls are recorded for quality and training purposes. This is Carrie, how can I assist you today?&lt;/div&gt;
 
 [[I want to refer someone to SolarCity.|Referral]]
 [[I have a question about my bill.|CC-bill]]
 [[I&#x27;m having a problem with my system.|CC-system]]
-[[I have some issues with the repair work.|CC-repair]]
-[[Get these panels off my roof! I want to cancel!|SaveDesk]]
+[[I&#x27;m thinking about moving, what do I do about my panels?|Reassignment]]
+[[Get these panels off my roof! I want to cancel!|Retention]]
 
-I&#x27;m planning to move, what do I do about my panels?
+&lt;&lt;click &quot;Never mind, just calling to say hello!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;
+</tw-passagedata><tw-passagedata pid="31" name="CC-bill" tags="" position="1500,274">Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I understand you have some questions about your bill.
 
-Use the back arrow to return.
-</tw-passagedata><tw-passagedata pid="31" name="CC-bill" tags="" position="1528,428">I apologize your bill was incorrect.
-I can get a new, corrected bill emailed to you right away.
+I apologize your bill was incorrect. I can get a new, corrected bill emailed to you right away.
 Would you like me to call you back and follow up in a few days to be sure the error has been corrected?
-Thanks for letting us know about the problem so we could get this solved for you.
-</tw-passagedata><tw-passagedata pid="32" name="CC-system" tags="" position="1481,289">at SolarCity we own our mistakes and will make things right because we are in a 20-30 year relationship.</tw-passagedata><tw-passagedata pid="33" name="NextSteps" tags="" position="429,1651">Sally Sunshine says:
+Thanks for letting us know about the problem so we could get this solved for you.&lt;/div&gt;
+&lt;&lt;click &quot;Thanks, Carrie!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;
+
+
+</tw-passagedata><tw-passagedata pid="32" name="CC-system" tags="" position="1375,275">Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;TBD
+TBD
+TBD
+&lt;/div&gt;
+&lt;&lt;click &quot;Thanks, Carrie!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="NextSteps" tags="" position="429,1651">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;That&#x27;s okay. You can use the MySolarCity App to schedule at your convenience. One of my teammates will be assigned as your personal Concierge, and they will call you to follow up within 24-48 hours to get you on the schedule if you haven&#x27;t done so yourself.&lt;&lt;elseif $schedule == true&gt;&gt;Great! We&#x27;ve got your Site Survey scheduled for $dayofweek $timeofday.&lt;&lt;else&gt;&gt;Sorry, we weren&#x27;t able to get you on the schedule at this time. [[Go back and try again|Schedule]].&lt;&lt;/if&gt;&gt;
 
 When the day of the survey comes, a member of our survey team will arrive during this 2-hour time window. They are going to verify if your home is compatible for an upgrade to solar power in its existing	condition. Once they arrive, the survey will usually last between 1 and 2 hours. They will take lots of pictures for our design team, inspect your electrical system, take measurements on the roof, and verify how much space you have on your roof for the panels. We take safety very seriously, so they will be	harnessed in and anchored to your roof. We want to make sure that your home can structurally support a solar system. So, they will need access to your attic or crawl space if you have one. If everything looks good, we will proceed to the next step and get started on the design. 
@@ -611,8 +623,8 @@ You can follow along with your entire project in the app.
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $schedule == false&gt;&gt;As I mentioned before, one&lt;&lt;else&gt;&gt;One&lt;&lt;/if&gt;&gt; of my teammates will be assigned to you as your personal Concierge to help guide you through the entire process. They&#x27;ll call you within 24-48 hours to introduce themselves. &lt;&lt;if $schedule == false&gt;&gt;They will also help you schedule your site survey, if you haven&#x27;t yet done so. &lt;&lt;/if&gt;&gt;They will also call you from time to time if they have updates, or to let you know if there&#x27;s any action needed on your part. I will also be in contact with you throughout the process. Your Concierge and I work together with the goal of delivering the Perfect Customer Experience. If you ever need anything, please don&#x27;t hesitate to contact us at any time.
 
 I&#x27;ll give you a call after your site survey to see how things went. At that time, we&#x27;ll schedule a date and time to go over your final design.&lt;/div&gt;
-[[Sounds good! Talk to you soon!|WOWCall]]
-[[Before you go - I have a friend interested in solar!|Referral]]</tw-passagedata><tw-passagedata pid="35" name="WOWCall" tags="" position="500,1773">&lt;&lt;set $callforhelp to &quot;concierge&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;journey1&quot;&gt;&gt;&lt;&lt;set $timeline to &quot;1&quot;&gt;&gt;Luis the Lightbulb says:
+[[Before you go - I have a friend interested in solar!|Referral]]
+[[Sounds good! Talk to you soon!|WOWCall]]</tw-passagedata><tw-passagedata pid="35" name="WOWCall" tags="" position="500,1773">&lt;&lt;set $callforhelp to &quot;concierge&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;journey1&quot;&gt;&gt;&lt;&lt;set $timeline to &quot;1&quot;&gt;&gt;Luis the Lightbulb says:
 &lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Woohoo! Your Concierge has been assigned. 
 Eric Energy will be working alongside your Energy Consultant, Sally Sunshine.
 Before reaching out to you with a WOW Call, Eric has a few things to do:
@@ -644,17 +656,29 @@ I&#x27;ll send you an email with all of this information so you have it handy.
 I know that Sally showed you MySolarCity. We&#x27;ll use this to send you documentation that will require your attention. You&#x27;ll be able to set up your automatic payments through MySolarCity, too.
 
 Thanks again for choosing SolarCity! I&#x27;ll be in touch again soon.&lt;/div&gt;
-[[I can&#x27;t wait for my Site Survey!|UBPage]]
 [[Before you go Eric, one of my friends is intersted in going solar!|Referral]]
+[[I can&#x27;t wait for my Site Survey!|UBPage]]
 
 
-</tw-passagedata><tw-passagedata pid="37" name="SiteSurvey" tags="" position="353,2025">It&#x27;s $dayofweek $timeofday - time for your Site Survey! You track the survey crew on your MySolarCity App.
+</tw-passagedata><tw-passagedata pid="37" name="SiteSurvey" tags="" position="353,2024">It&#x27;s $dayofweek $timeofday - time for your Site Survey!
+
+Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-4.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;The Site Surveyor has a bit of work to do before even arriving at your home.
+*He&#x27;ll review satellite images and the initial designs Sally created.
+*He&#x27;ll look at any notes that have been left on your job from the other teams to see if there is anything that applies to today&#x27;s survey.
+*Right before he leaves to drive to your home, he&#x27;ll initiate tracking so you can follow along on MySolarCity.
+*&lt;&lt;linkappend &quot;Want to know more about a day in the life of a Site Surveyor?&quot;&gt;&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://britne.github.io/twine/SiteSurveyor.mp4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;/p&gt;&lt;/div&gt;
+&lt;&lt;linkreplace &quot;Thanks, Luis!&quot;&gt;&gt;You track your surveyor on your MySolarCity App. Watch what happens!
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/YRG8cM3SQVk&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-[[What next?|DesignTeam]]
+[[What&#x27;s next?|DesignTeam]]&lt;&lt;/linkreplace&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="38" name="Docs" tags="" position="601,2050">&lt;&lt;set $work to random(2)&gt;&gt;Luis the Lightbulb says:
+
+&lt;video src=&quot;https://britne.github.io/twine/SiteSurveyor.mp4&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;&lt;/video&gt;</tw-passagedata><tw-passagedata pid="38" name="Docs" tags="" position="601,2050">&lt;&lt;set $work to random(1)&gt;&gt;Luis the Lightbulb says:
 &lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;I know you&#x27;re getting excited. We are too! Things are moving along behind the scenes.
 I just checked in with your Solar Concierge, Eric, and he&#x27;s been hard at work. 
 *He&#x27;s reviewing the notes left by the Design team and making sure the Document Generation team has your final contract ready to go. 
@@ -678,51 +702,90 @@ Use the back arrow to return.</tw-passagedata><tw-passagedata pid="45" name="Med
 
 Use the back arrow to return.</tw-passagedata><tw-passagedata pid="46" name="Medallia - Always On" tags="" position="1724,150">&lt;img src=&quot;https://britne.github.io/twine/survey1.PNG&quot; width=&quot;600&quot; height=&quot;300&quot; alt=&quot;Survey&quot;&gt;
 
-Use the back arrow to return.</tw-passagedata><tw-passagedata pid="47" name="Design" tags="" position="851,2049">Sally Sunshine says:
+Use the back arrow to return.</tw-passagedata><tw-passagedata pid="47" name="Design" tags="" position="851,2049">&lt;&lt;set $cancel to &quot;sally&quot;&gt;&gt;Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hey there, $name! I&#x27;ve seen the results of your Site Survey, and your solar upgrade looks slick!
-If you haven&#x27;t already, take a look at the documents we&#x27;ve sent you in your MySolarCity account. I can help explain your design.
+If you haven&#x27;t already, take a look at the documents we&#x27;ve sent you in your MySolarCity account. 
 
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://britne.github.io/twine/ReadDesign.mp4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;img class=&quot;dynamo&quot; src=&quot;https://britne.github.io/twine/plans.png&quot; width=&quot;700&quot;&gt;
+
+I can help explain your design.
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://britne.github.io/twine/ReadDesign.mp4&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+Let me know what you think!&lt;/div&gt;
+[[This looks great, Sally! Let&#x27;s move forward.|FinalContract]]
+[[It&#x27;s not exactly what I had in mind. Can I change something?|DesignChange]]
+[[It looks terrible! I&#x27;m having second thoughts about my entire project.|Retention]]
 
 
-Approve
-Change
-Deny
+&lt;video src=&quot;https://britne.github.io/twine/ReadDesign.mp4&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;&lt;/video&gt;</tw-passagedata><tw-passagedata pid="48" name="FinalContract" tags="" position="899,2201">&lt;&lt;set $medallia to &quot;journey3&quot;&gt;&gt;Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;&lt;&lt;if $redesign == true&gt;&gt;The Design team sent over your new designs - we were able to take care of everything you wanted, and luckily there was no change in price!
 
-[[It looks terrible! I&#x27;m having second thoughts about my job.|SaveDesk]]
+&lt;&lt;/if&gt;&gt;Here&#x27;s the final version of your contract. Go ahead and review it, below.
 
-VO or Change Order?
-Additional Docs?
+&lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;&lt;img src=&quot;https://britne.github.io/twine/ppa.png&quot; width=&quot;600&quot;&gt;&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;&lt;img src=&quot;https://britne.github.io/twine/loan.png&quot; width=&quot;600&quot;&gt;&lt;&lt;/if&gt;&gt;
 
-HOA Requirements?
+If everything looks good, go ahead and sign your full name.&lt;/div&gt;
+Sign your final &lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;PPA&lt;&lt;elseif $contract == &quot;loan&quot;&gt;&gt;Solar Loan&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt; contract by typing your name in the box below:
 
-[[FinalContract]]
+&lt;&lt;textbox &quot;$sig2&quot; &quot;&quot; &quot;Signature2&quot;&gt;&gt;
 
-&lt;video src=&quot;https://britne.github.io/twine/ReadDesign.mp4&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;&lt;/video&gt;</tw-passagedata><tw-passagedata pid="48" name="FinalContract" tags="" position="1000,2148">&lt;&lt;set $medallia to &quot;journey3&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;Sign my contract!&quot;&gt;&gt;Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Another major milestone reached in your journey to cleaner energy! Right now, the Incentives and Interconnection departments are hard at work preparing the paperwork needed for your system&#x27;s installation and interconnection to the electric grid.
+*They&#x27;re submitting applications for rebates to take advantage of all available incentives.
+*They&#x27;re checking on approval timelines in the AHJ Database.
+*They keep an eye on applications that may be delayed by tranche.
+*The Utility Relations team continually works with utilities to streamline their paperwork and processes.
+&lt;/p&gt;&lt;/div&gt;
+[[Thanks for the scoop, Luis!|Email]]&lt;&lt;/linkreplace&gt;&gt;
 
-Sign all final documents
 
-[[ScheduleInstall]]
 
-</tw-passagedata><tw-passagedata pid="49" name="Install" tags="" position="1278,2283">&lt;&lt;set $install to true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="49" name="Install" tags="" position="1422,1899">&lt;&lt;set $install to true&gt;&gt;&lt;&lt;set $medallia to &quot;journey4&quot;&gt;&gt;It&#x27;s $dayofweek2 $timeofday2 - the big day is here!
 
+Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;It may be hard to believe, but all of us at SolarCity are just as excited as you are about this big day. Here&#x27;s what you can expect today from our installation crew:
+*They&#x27;ll give you a call when they&#x27;re on their way and let you know if there are any delays.
+*When they arrive, they&#x27;ll introduce the crew and go over the design with you again.
+*The crew will do a pre-walkthrough with you to make notes.
+*They will keep you updated throughout the installation, including communicating when they need to shut off the power to your home.
+*When the installation is complete, the crew will clean up and do a post-walkthrough with you to be sure you&#x27;re satisfied.
+*Before they go, they&#x27;ll give you a quick lesson on how to turn on your system when the day comes. You still need permission to operate from your utility, so if you need help later you can always give us a call.
+&lt;/p&gt;&lt;/div&gt;
+&lt;&lt;linkappend &quot;Here comes the crew now!&quot;&gt;&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dx_kKz1Vqm0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-[[PTO]]</tw-passagedata><tw-passagedata pid="50" name="PTO" tags="" position="1405,2429">&lt;iframe src=&quot;https://player.vimeo.com/video/156790050?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+[[Can I turn it on yet? Pretty please?|Inspect]]&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="PTO" tags="" position="1249,1774">You receive an email:
+
+&lt;div class=&quot;email&quot;&gt;Dear $name,
+This notice serves as permission to operate your photovoltaic system.
+
+Sincerely,
+MegaMonopoly Energy Co.&lt;/div&gt;
+
+Help! I forgot everything the install crew told me about PTO! 
+&lt;&lt;linkappend &quot;I need help from Customer Care!&quot;&gt;&gt;
+
+Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;No worries, $name - we&#x27;ve got you covered.
+
+&lt;iframe src=&quot;https://player.vimeo.com/video/156790050?byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+[[Thanks Carrie, you&#x27;re a lifesaver. Now my home has gone solar!|FirstBill]]&lt;&lt;/linkappend&gt;&gt;
 </tw-passagedata><tw-passagedata pid="51" name="StoryBanner" tags="" position="595,0">&lt;img src=&quot;https://britne.github.io/twine/RISE6.png&quot; height=&quot;100&quot; width=&quot;120&quot;&gt;</tw-passagedata><tw-passagedata pid="52" name="StorySubtitle" tags="" position="797,0">CAMG RISE #6</tw-passagedata><tw-passagedata pid="53" name="StoryAuthor" tags="" position="898,0">brought to you by  
-CAMG Training</tw-passagedata><tw-passagedata pid="54" name="StoryTitle" tags="" position="697,0">The Job Flow</tw-passagedata><tw-passagedata pid="55" name="DesignTeam" tags="" position="477,2050">&lt;&lt;set $medallia to &quot;journey2&quot;&gt;&gt;&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-4.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;With the results of your Site Survey, the Design team is hard at work creating the final designs for your new solar system. Check it out!
+CAMG Training</tw-passagedata><tw-passagedata pid="54" name="StoryTitle" tags="" position="696,0">The Job Flow</tw-passagedata><tw-passagedata pid="55" name="DesignTeam" tags="" position="477,2050">&lt;&lt;set $medallia to &quot;journey2&quot;&gt;&gt;&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-4.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;With the results of your Site Survey, the Design team is hard at work creating the final designs for your new solar system. Check it out!
 &lt;iframe src=&quot;https://player.vimeo.com/video/174845680?byline=0&amp;portrait=0&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/p&gt;&lt;/div&gt;
 &lt;&lt;linkreplace &quot;But what are they doing, Luis?&quot;&gt;&gt;
-&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-4.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;The Design team uses advanced design and modeling software to create the best possible design for your home.
-They have a set of standards they follow, such as:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-4.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;The Design team takes your energy usage, sales proposal and site survey photos, along with any local requirements that may apply, and uses advanced design and modeling software to create the best possible design for your home. They have a set of standards they follow, such as:
 *Roof Type - not all roof types can withstand solar panels. Luckily, your $roof roof is perfect for the job!
 *System size - the minimum system size is 6 panels
 *Usage offset - varies based on your utility and contract type
+They generate the various design plansets used by different SolarCity teams (and you as the customer!), as well as the engineering proposal and bill of materials for your project.
 &lt;/p&gt;&lt;/div&gt;&lt;&lt;/linkreplace&gt;&gt;
 [[Show me my design already!|Docs]]</tw-passagedata><tw-passagedata pid="56" name="Looks" tags="" position="452,652">Sally Sunshine says:
-&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - I hear that concern a lot.
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;That makes sense - &lt;&lt;if hasVisited(&quot;Roof&quot;)&gt;&gt;I&#x27;ve heard that concern, too.&lt;&lt;elseif hasVisited(&quot;Savings&quot;)&gt;&gt;I&#x27;ve heard that concern, too.&lt;&lt;else&gt;&gt;I hear that a lot.&lt;&lt;/if&gt;&gt;
 
 You&#x27;ll be happy to know our state-of-the-art mounting system is unmatched - in performance and style. I&#x27;ll make sure we cover that in detail for you.
 
@@ -754,14 +817,14 @@ The story may ask you to type information in boxes like these: &lt;&lt;textbox &
 &lt;&lt;radiobutton &quot;$test&quot; &quot;test3&quot;&gt;&gt; choose options 
 &lt;&lt;radiobutton &quot;$test&quot; &quot;test4&quot;&gt;&gt; with radio buttons.&lt;&lt;/linkreplace&gt;&gt;
 
-&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/arrows.png&quot; width=&quot;100&quot;&gt;The arrow buttons let you move backwards and forwards based on the story passages you have visited.
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/arrows.png&quot; width=&quot;100&quot;&gt;The arrow buttons let you move backwards and forwards through the story passages you have visited.
 
 &lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/optionmenu.png&quot; width=&quot;200&quot;&gt;The sidebar menu will show you additional options, such as taking a survey or calling for help, based on where you are in the story.
 
 &lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/savemenu.png&quot; width=&quot;200&quot;&gt;You can save your progress (maybe before a big decision?) and return to your save point later. You can restart the story from the beginning at any time.
 
 Note that the game saves on a computer-by-computer basis. If you resume the game on a different computer, your progress will not be saved. 
-</tw-passagedata><tw-passagedata pid="60" name="Schedule" tags="" position="301,1652">&lt;&lt;if $callforhelp != &quot;concierge&quot;&gt;&gt;Sally Sunshine says:
+</tw-passagedata><tw-passagedata pid="60" name="Schedule" tags="" position="251,1650">&lt;&lt;if $callforhelp != &quot;concierge&quot;&gt;&gt;Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;What day of the week works best?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Monday&quot; checked&gt;&gt; Monday 
 &lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Tuesday&quot;&gt;&gt; Tuesday
 &lt;&lt;radiobutton &quot;$dayofweek&quot; &quot;Wednesday&quot;&gt;&gt; Wednesday
@@ -790,8 +853,10 @@ I was checking in on your job, and from the notes in SolarWorks, it looks like o
 I just wanted to make sure you had my contact information handy in case you need to reach me for any reason. You can find it at the bottom of this email.
 &lt;&lt;if $credit != $sig&gt;&gt;
 It looks like the signatures on your credit check and your contract didn&#x27;t match. Here&#x27;s what we have for the credit check; could you please re-sign the contract to match?
+
 Name on Credit Check: &lt;&lt;print $credit&gt;&gt;
-Re-Sign Here: &lt;&lt;textbox &quot;$sig&quot; &quot;&quot; &quot;Signature&quot; autofocus&gt;&gt;&lt;&lt;else&gt;&gt;I did want to follow up on the utility bill you gave to Sally - it looks like it was missing the last page. Please log on to MySolarCity at your earliest convenience and upload a new copy of your utility bill.&lt;&lt;/if&gt;&gt;
+Re-Sign Here: &lt;&lt;textbox &quot;$sig&quot; &quot;&quot; &quot;Signature&quot; autofocus&gt;&gt;&lt;&lt;else&gt;&gt;
+I did want to follow up on the utility bill you gave to Sally - it looks like it was missing the last page. Please log on to MySolarCity at your earliest convenience and upload a new copy of your utility bill.&lt;&lt;/if&gt;&gt;
 
 Just a reminder, your Site Survey is coming up this $dayofweek $timeofday. If you need to reschedule, you can do that in MySolarCity as well.
 
@@ -815,36 +880,116 @@ A lot of my customers invite their neighbors, friends and family who are also cu
 Just so you know, the consultation typically takes about an hour to an hour-and-a-half depending on how many questions you have. But, I&#x27;m more than happy to spend as much time as you would like.
 
 I&#x27;ll send you an email right now with some more information. See you next week!&lt;/div&gt;
-[[Thanks Sally, see you soon!|EC-Email]]</tw-passagedata><tw-passagedata pid="64" name="DesignChange" tags="" position="851,2176">Concierge clarifies key indicators (specify mounting plane and ANNUAL production)
-Concierge emails Design Inquiry team and CC&#x27;s EC
-Concierge forwards results to EC</tw-passagedata><tw-passagedata pid="65" name="SaveDesk" tags="" position="1277,401">&lt;div class=&quot;EC&quot;&gt;I understand. I will go ahead and get you over to someone who can assist. If you let me know why you&#x27;re cancelling, I can get my colleague on the line to assist you.&lt;/div&gt;
+[[Thanks Sally, see you soon!|EC-Email]]</tw-passagedata><tw-passagedata pid="64" name="DesignChange" tags="" position="1074,2152">&lt;&lt;set $redesign to true&gt;&gt;Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I understand that you weren&#x27;t thrilled with the design of your system. 
+Let&#x27;s see if we can fix it together. We may be able to make some changes.
+What exactly was the issue?&lt;/div&gt;
+[[I don&#x27;t like where the panels are mounted.|Mount]]
+[[It doesn&#x27;t look like it&#x27;s going to produce enough energy, can you make the system bigger?|Size]]
 
+</tw-passagedata><tw-passagedata pid="65" name="Retention" tags="" position="850,1926">&lt;&lt;if $install == true&gt;&gt;&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m sorry you feel this way! I want to remind you that SolarCity has invested time and money into your project, and up until this point you have not paid anything as it is our goal to help you go solar with no money down. It is in both of our best interests to work together. We have entered an agreement together for the next 20 years and it is our goal to ensure it’s a GREAT one.&lt;/div&gt;
+&lt;&lt;click &quot;Never mind, I don&#x27;t want to cancel.&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;if $cancel == &quot;sally&quot;&gt;&gt;&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry we&#x27;re not meeting your expectations! 
+We want you to have a perfect experience with SolarCity.
+If you could tell me a little more, I may be able to help.&lt;/div&gt;
+&lt;&lt;linkappend &quot;It&#x27;s taking forever! I thought my system would be up and running by now.&quot;&gt;&gt;
+
+Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+With the ever changing permitting and utility timelines, it is difficult to predict the same time for every customer. The process could take longer or it could be shorter. We will keep you informed with updates along the way.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;This is getting too complicated! It&#x27;s one thing after another - more signatures, more paperwork.&quot;&gt;&gt;
+
+Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Don&#x27;t worry, SolarCity will be handling all the leg work on your behalf. We&#x27;ll take care of everything behind the scenes - we simply ask for your assistance with a few signatures and initials. Everything is easy to find in MySolarCity.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I&#x27;m not happy with my design.&quot;&gt;&gt;
+
+Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Actually, we&#x27;re proposing what would best fit your home, then our industry-leading design team takes the information and creates your final system design to be most optimal for your plan.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I just don&#x27;t think the time is right for me.&quot;&gt;&gt;
+
+Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Your benefit by starting the process sooner means the faster you can start capitalizing on the savings and advantages of going solar. There&#x27;s still plenty to be done behind the scenes; it&#x27;s best to keep the process moving forward.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I just want to cancel my project.&quot;&gt;&gt;
+
+Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry to hear that.
+I will go ahead and get my colleague on the line to assist you.&lt;/div&gt;
+[[I&#x27;m sure I want to cancel.|Cancel]]&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;elseif $cancel == &quot;eric&quot;&gt;&gt;&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry we&#x27;re not meeting your expectations! 
+We want you to have a perfect experience with SolarCity.
+If you could tell me a little more, I may be able to help.&lt;/div&gt;
+&lt;&lt;linkappend &quot;It&#x27;s taking forever! I thought my system would be up and running by now.&quot;&gt;&gt;
+
+Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+With the ever changing permitting and utility timelines, it is difficult to predict the same time for every customer. The process could take longer or it could be shorter. We will keep you informed with updates along the way.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;This is getting too complicated! It&#x27;s one thing after another - more signatures, more paperwork.&quot;&gt;&gt;
+
+Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Don&#x27;t worry, SolarCity will be handling all the leg work on your behalf. We&#x27;ll take care of everything behind the scenes - we simply ask for your assistance with a few signatures and initials. Everything is easy to find in MySolarCity.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I&#x27;m not happy with my design.&quot;&gt;&gt;
+
+Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Actually, we&#x27;re proposing what would best fit your home, then our industry-leading design team takes the information and creates your final system design to be most optimal for your plan.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I just don&#x27;t think the time is right for me.&quot;&gt;&gt;
+
+Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Your benefit by starting the process sooner means the faster you can start capitalizing on the savings and advantages of going solar. There&#x27;s still plenty to be done behind the scenes; it&#x27;s best to keep the process moving forward.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I just want to cancel my project.&quot;&gt;&gt;
+
+Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry to hear that.
+I will go ahead and get my colleague on the line to assist you.&lt;/div&gt;
+[[I&#x27;m sure I want to cancel.|Cancel]]&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;else&gt;&gt;&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry we&#x27;re not meeting your expectations! 
+We want you to have a perfect experience with SolarCity.
+If you could tell me a little more, I may be able to help.&lt;/div&gt;
+&lt;&lt;linkappend &quot;It&#x27;s taking forever! I thought my system would be up and running by now.&quot;&gt;&gt;
+
+Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+With the ever changing permitting and utility timelines, it is difficult to predict the same time for every customer. The process could take longer or it could be shorter. We will keep you informed with updates along the way.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;This is getting too complicated! It&#x27;s one thing after another - more signatures, more paperwork.&quot;&gt;&gt;
+
+Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Don&#x27;t worry, SolarCity will be handling all the leg work on your behalf. We&#x27;ll take care of everything behind the scenes - we simply ask for your assistance with a few signatures and initials. Everything is easy to find in MySolarCity.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I&#x27;m not happy with my design.&quot;&gt;&gt;
+
+Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Actually, we&#x27;re proposing what would best fit your home, then our industry-leading design team takes the information and creates your final system design to be most optimal for your plan.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I just don&#x27;t think the time is right for me.&quot;&gt;&gt;
+
+Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I completely understand.
+Your benefit by starting the process sooner means the faster you can start capitalizing on the savings and advantages of going solar. There&#x27;s still plenty to be done behind the scenes; it&#x27;s best to keep the process moving forward.&lt;/div&gt;&lt;&lt;/linkappend&gt;&gt;
+&lt;&lt;linkappend &quot;I just want to cancel my project.&quot;&gt;&gt;
+
+Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry to hear that.
+I will go ahead and get my colleague on the line to assist you.&lt;/div&gt;
+[[I&#x27;m sure I want to cancel.|Cancel]]&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;click &quot;Never mind, I don&#x27;t want to cancel.&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;
-
-It&#x27;s too expensive
-It&#x27;s taking too long
-I had a bad experience with SolarCity
-
-Customers DO NOT have the option to cancel after we have started construction (MPU/Re-Roof/Install)
-Reinforce this with the customer
-Remind the customer why they wanted to go solar
-Answer their questions and concerns to move the job forward
-Do everything possible to find a way forward by leveraging training, seniors, and supervisors to uncover the root cause of the customer&#x27;s issue and attempt to resolve it
-
-“SolarCity has invested time and money into your project, up until this point you have not paid anything as it is our goal to help you go solar with no money down. It is in both of our best interest to work together”
-We have entered an agreement together for the next 20 years and it is our goal to ensure it’s a GREAT one”</tw-passagedata><tw-passagedata pid="66" name="Work" tags="" position="727,2050">Eric Energy says:
+</tw-passagedata><tw-passagedata pid="66" name="Work" tags="" position="727,2050">&lt;&lt;set $cancel to &quot;eric&quot;&gt;&gt;Eric Energy says:
 &lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hi $name, it&#x27;s Eric from the Concierge team at SolarCity.
 I was calling to let you know that we need your assistance on ensuring your home is solar ready. Were you aware that you need some &lt;&lt;if $work == 1&gt;&gt;roof&lt;&lt;else&gt;&gt;electrical&lt;&lt;/if&gt;&gt; work?
 It looks like we will have to complete some upgrades and work before being able to install the solar system on your house. There will be some additional costs for the &lt;&lt;if $work == 1&gt;&gt;Re-Roof&lt;&lt;else&gt;&gt;Main Panel Upgrade&lt;&lt;/if&gt;&gt; and labor, but we will work with you throughout the process.
 
 Is that okay?&lt;/div&gt;
+[[No, I want to cancel my project.|Retention]]
 &lt;&lt;linkappend &quot;Yes, I understand - let&#x27;s move forward!&quot;&gt;&gt;
 
 Eric Energy says:
 &lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Great! I&#x27;ll let the Design team know.
 We&#x27;ll be in touch again when the design is ready.&lt;/div&gt;
 [[Show me the design already!|Design]]&lt;&lt;/linkappend&gt;&gt;
-[[No, I want to cancel my project.|SaveDesk]]</tw-passagedata><tw-passagedata pid="67" name="Objections" tags="" position="374,1775">Eric Energy says:
+</tw-passagedata><tw-passagedata pid="67" name="Objections" tags="" position="374,1775">Eric Energy says:
 &lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m so sorry we&#x27;re not meeting your expectations! 
 We want you to have a perfect experience with SolarCity.
 Can you tell me a bit more about why you&#x27;re reconsidering your solar project?&lt;/div&gt;
@@ -872,50 +1017,59 @@ Eric Energy says:
 &lt;&lt;linkappend &quot;Your local utility company, right?&quot;&gt;&gt;
 So essentially you are in a 20 agreement with them, but you have no control over the price. Wouldn&#x27;t it have been great to lock in prices from 20 years ago? Prices go up over time – the utility and ours. Your neighbors who went solar a few years ago got a cheaper price than we can offer today. Plus they’ve been saving money compared to the utility for those years!&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;/div&gt;
 [[Thanks, Eric. I feel better about my project now. Let&#x27;s move forward!|Resolved]]
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="FirstBill" tags="" position="1558,2438"></tw-passagedata><tw-passagedata pid="69" name="ScheduleInstall" tags="" position="1140,2276">NAME from SolarCity Scheduling
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="FirstBill" tags="" position="1124,1775">&lt;&lt;set $medallia to &quot;relationship&quot;&gt;&gt;&lt;&lt;set $cancel to &quot;care&quot;&gt;&gt;Can you believe it? It&#x27;s been &lt;&lt;if $contract != &quot;loan&quot;&gt;&gt;a month &lt;&lt;else&gt;&gt;two months &lt;&lt;/if&gt;&gt;since you received PTO?
 
-It does look like we will need access to the inside of your home during the installation and we require someone 18 years or older to be home for this.
+Well, believe it or not, here&#x27;s your first SolarCity bill:
 
-Please ensure the driveways within 30 feet of your home are clear as the crew will need a safe place to work in.
+&lt;div class=&quot;email&quot;&gt;
+&lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;&lt;img class=&quot;dynamo&quot; src=&quot;https://britne.github.io/twine/ppa-bill.png&quot; width=&quot;500&quot;&gt;&lt;&lt;else&gt;&gt;&lt;img class=&quot;dynamo&quot; src=&quot;https://britne.github.io/twine/loan-bill.png&quot; width=&quot;500&quot;&gt;&lt;/div&gt;
+[[That&#x27;s not at all what I expected. I want to cancel.|Retention]]
+[[I have questions on my bill.|CC-bill]]
+&lt;&lt;if $time != &quot;forever&quot;&gt;&gt;[[I&#x27;ve been thinking about moving. Can you tell me more about what happens to my solar system?|Reassignment]]&lt;&lt;/if&gt;&gt;
+[[Wow! Going solar has been amazing! Thanks SolarCity!|Solarversary]]</tw-passagedata><tw-passagedata pid="69" name="ScheduleInstall" tags="" position="1177,2025">The next day, you receive a phone call.
+&lt;div class=&quot;other&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Hello, this is Pat PV from SolarCity Scheduling. 
+I&#x27;m calling to get your solar project on the calendar!
 
-IF MPU - Please ensure that the area around the main electrical panel will be accesible by the crew so as to have room to install the electrical equipment.
+What day of the week works best?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$dayofweek2&quot; &quot;Monday&quot; checked&gt;&gt; Monday 
+&lt;&lt;radiobutton &quot;$dayofweek2&quot; &quot;Tuesday&quot;&gt;&gt; Tuesday
+&lt;&lt;radiobutton &quot;$dayofweek2&quot; &quot;Wednesday&quot;&gt;&gt; Wednesday
+&lt;&lt;radiobutton &quot;$dayofweek2&quot; &quot;Thursday&quot;&gt;&gt; Thursday 
+&lt;&lt;radiobutton &quot;$dayofweek2&quot; &quot;Friday&quot;&gt;&gt; Friday
+&lt;&lt;radiobutton &quot;$dayofweek2&quot; &quot;Saturday&quot;&gt;&gt; Saturday&lt;/p&gt;What time of day?&lt;p class=&quot;normal&quot;&gt;&lt;&lt;radiobutton &quot;$timeofday2&quot; &quot;morning&quot; checked&gt;&gt; Morning
+&lt;&lt;radiobutton &quot;$timeofday2&quot; &quot;afternoon&quot;&gt;&gt; Afternoon
+&lt;&lt;radiobutton &quot;$timeofday2&quot; &quot;evening&quot;&gt;&gt; Evening&lt;/p&gt;&lt;/div&gt;
+[[I can&#x27;t wait!|ScheduleInstall2]]</tw-passagedata><tw-passagedata pid="70" name="Docs2" tags="" position="1300,1898">Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Hi there, $name - Luis checking in again. Things are moving along behind the scenes to prepare for your solar installation.
+*Permits are being worked on by the coordinator at your local warehouse.
+*Your Solar Concierge, Eric, has been reviewing the notes on your job in SolarWorks regularly, and it looks like he has an update for you now.
+&lt;/p&gt;&lt;/div&gt;
+&lt;&lt;linkreplace &quot;Thanks, Luis! You&#x27;re the best!&quot;&gt;&gt;Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Thanks for holding, $name! I know you must be getting excited about your project.
 
-I can have the crew out to your home on DAY and TIME. It will take the crew SOME TIME to complete the installation.
+&lt;&lt;if $hoa == &quot;yes&quot;&gt;&gt;I just wanted to update you on some notes from our HOA team. It looks like we need an additional signature from you on a new vresion of one of their documents.&lt;&lt;else&gt;&gt;It looks like your utility sent over a new version of one of their forms, and it needs your signature again.&lt;&lt;/if&gt;&gt; I just need you to log in to MySolarCity and sign that before your installation happens.&lt;/div&gt;
+[[No problem, Eric - I&#x27;ll take care of that now.|Install]]&lt;&lt;/linkreplace&gt;&gt;
 
-So you are aware, our installation crew will need to turn off the electricity to the home for about an hour to safely connect to the grid. This will be coordinated by the crew lead with whomever is home.
-
-When the installation is complete, you will go through a final building inspection from the city or county. After that we will need to receive the permission to operate whcich is currently averaging XX WEEKS. Please keep in mind this is an estimation based on what we are currently seeing and could change.
-
-PPA - your first bill will not be sent until after your system has been turned on
-LOAN - per your loan agreement, you will receive your first bill 2-3 months after installation
-
-Thank you for scheduling your installation! One last thing - are you aware of the One Month On Us program? YES/NO
-The program allows you to receive a $200 referral reward for anyone that you help go solar and they will reeive a month of solar electricity on us. Do you have anyone you would like to help go solar?
-
-It appears there&#x27;s one more thing for our Concierge team to discuss with you, could you please hold for a moment while I get Eric on the line?
-</tw-passagedata><tw-passagedata pid="70" name="Incentives" tags="" position="1128,2146">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="71" name="Inspect" tags="" position="1400,2276">UCC-1
-AHJ/Utility Inspections</tw-passagedata><tw-passagedata pid="72" name="CC-repair" tags="" position="1463,554">Of course you&#x27;re angry, you said the technician arrived late and did a poor job.
-
-&quot;I can schedule another repair technician right now.&quot;
-&quot;We will send a technician out as soon as possible to take a look at your roof.&quot;
-
-&quot;Can we call you tomorrow to make sure the repair technician showed up on time and did a good job?&quot;
-
-&quot;Thank you for letting us know about the problem.&quot; &quot;I appreciate you letting us help you with this.&quot;</tw-passagedata><tw-passagedata pid="73" name="Resolved" tags="" position="253,1775">Eric Energy says:
+</tw-passagedata><tw-passagedata pid="71" name="Inspect" tags="" position="1374,1776">Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Not just yet! A few more things need to happen before you can use your new solar system.
+*Our Recordings team will have some additional paperwork related to the UCC-1 fixture filing that will be placed on your home.
+*Your utility company and local authorities require inspections of your project to be sure it meets all safety and building codes.
+&lt;&lt;if $hoa == &quot;yes&quot;&gt;&gt;*Your HOA also requires an inspection, to ensure your home improvement project meets aesthetical guidelines. (Don&#x27;t worry - you know we have the best looking panels around!)&lt;&lt;/if&gt;&gt;You can check for updates in MySolarCity. It won&#x27;t be long now!
+&lt;/p&gt;&lt;/div&gt;
+[[Thanks, Luis!|PTO]]</tw-passagedata><tw-passagedata pid="72" name="Resolved" tags="" position="253,1775">Eric Energy says:
 &lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Glad I could help ease your mind, $name.
 If you have any other questions or concerns, you can call me anytime.
 
 Now, about that site survey - does $dayofweek $timeofday still work for you?&lt;/div&gt;
 [[Yes, that appointment will work.|WOWCall2]]
 [[No, I need to reschedule.|Schedule]]
-</tw-passagedata><tw-passagedata pid="74" name="Pictures" tags="" position="453,900">Sally Sunshine says:
+</tw-passagedata><tw-passagedata pid="73" name="Pictures" tags="" position="453,900">Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;You&#x27;re going to be amazed.
 &lt;&lt;linkreplace &quot;Let&#x27;s look at those pictures!&quot;&gt;&gt;
 Compare our panels to the competition:
 &lt;img src=&quot;https://britne.github.io/twine/ourpanels.png&quot; height=&quot;400&quot; width=&quot;700&quot;&gt;&lt;img src=&quot;https://britne.github.io/twine/theirpanels.png&quot; height=&quot;400&quot; width=&quot;700&quot;&gt;
 Here&#x27;s a couple more examples:
 &lt;img src=&quot;https://britne.github.io/twine/housepanels.png&quot; height=&quot;280&quot; width=&quot;700&quot;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;
-[[Looks great! Can you tell me how much I&#x27;ll save on my electric bill?|ElectricityCost]]</tw-passagedata><tw-passagedata pid="75" name="Referral" tags="" position="627,1826">&lt;&lt;if $callforhelp != &quot;concierge&quot;&gt;&gt;Sally Sunshine says:
+[[Looks great! Can you tell me how much I&#x27;ll save on my electric bill?|ElectricityCost]]</tw-passagedata><tw-passagedata pid="74" name="Referral" tags="" position="626,1825">&lt;&lt;if $callforhelp != &quot;concierge&quot;&gt;&gt;Sally Sunshine says:
 &lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;Fantastic! Who would you like to refer to SolarCity?
 Name: &lt;&lt;textbox &quot;$refer&quot; &quot;&quot; &quot;ReferralName&quot; autofocus&gt;&gt;
 &lt;&lt;linkreplace &quot;I want my $200!&quot;&gt;&gt;
@@ -929,7 +1083,102 @@ Name: &lt;&lt;textbox &quot;$refer&quot; &quot;&quot; &quot;ReferralName&quot; a
 &lt;&lt;linkreplace &quot;I want my $200!&quot;&gt;&gt;
 Thanks for the referral! If $refer goes solar with SolarCity, you&#x27;ll get your referral reward, and $refer will get One Month On Us too!
 &lt;&lt;click &quot;Let me know if you want to refer someone else.&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-</tw-passagedata></tw-storydata></div>
+</tw-passagedata><tw-passagedata pid="75" name="C-HOA" tags="" position="774,275">Eric Energy says:
+&lt;div class=&quot;CAMG&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I&#x27;m sorry to hear you&#x27;re having a problem with your HOA.
+
+Just to review, here&#x27;s how we can help:
+*We can provide you with instructions after your Site Survey
+*We can provide a generic application if your HOA does not provide a specific one for your community.
+*We can provide additional documents as requested by your HOA.
+
+Here&#x27;s what you need to do:
+*Be the primary point of contact to your HOA.
+*Submit all required HOA documents to them - we can&#x27;t submit documents for you, but we can help.
+*Provide us at SolarCity with your HOA&#x27;s approval, when you receive it.
+
+We strongly suggest you call your HOA and advise them you are going solar. You may also want to discuss if they have any fees for home improvement projects. These fees will be your responsibility.&lt;/div&gt;
+&lt;&lt;click &quot;Thanks, Eric!&quot;&gt;&gt;&lt;&lt;script&gt;&gt;State.backward()&lt;&lt;/script&gt;&gt;&lt;&lt;/click&gt;&gt;</tw-passagedata><tw-passagedata pid="76" name="Cancel" tags="" position="749,1701">&lt;&lt;set $callforhelp to &quot;none&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;fallout&quot;&gt;&gt;&lt;img class=&quot;left&quot; src=&quot;https://britne.github.io/twine/bitmoji-paul-9.png&quot; height=&quot;225&quot;&gt;Wow, I was so surprised to see you cancel your solar project!
+
+If you don&#x27;t mind sharing your thoughts, I&#x27;d love to hear more about your experience with SolarCity. You can use the button in the sidebar to take a Medallia survey.
+
+Otherwise, I hope you&#x27;ve enjoyed learning about the Job Flow through our customer&#x27;s eyes in this new interactive format. You may replay this story game as often as you like. 
+
+If you have feedback to share, please use the Evaluation Form at the end of this course.
+&lt;hr&gt;
+You may now close this window to continue with the Virtual Job Shadowing portion of RISE #6.</tw-passagedata><tw-passagedata pid="77" name="Solarversary" tags="" position="999,1723">&lt;&lt;set $callforhelp to &quot;none&quot;&gt;&gt;&lt;&lt;set $medallia to &quot;anniversary&quot;&gt;&gt;&lt;img class=&quot;left&quot; src=&quot;https://britne.github.io/twine/bitmoji-paul-9.png&quot; height=&quot;225&quot;&gt;Wow, can you believe it&#x27;s been a year since you went solar?
+
+If you don&#x27;t mind sharing your thoughts, I&#x27;d love to hear more about your experience with SolarCity. You can use the button in the sidebar to take a Medallia survey.
+
+Otherwise, I hope you&#x27;ve enjoyed learning about the Job Flow through our customer&#x27;s eyes in this new interactive format. You may replay this story game as often as you like. 
+
+If you have feedback to share, please use the Evaluation Form at the end of this course.
+&lt;hr&gt;
+You may now close this window to continue with the Virtual Job Shadowing portion of RISE #6.</tw-passagedata><tw-passagedata pid="78" name="Reassignment" tags="" position="1221,1609">Carrie says:
+&lt;div class=&quot;care&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;TBD
+TBD
+TBD&lt;/div&gt;
+
+Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;TBD
+TBD
+TBD
+TBD
+TBD&lt;/p&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="79" name="Email" tags="" position="1199,2251">You receive another email from Eric:
+
+&lt;div class=&quot;email&quot;&gt;Hi again, $name!
+
+&lt;&lt;if $sig != $sig2&gt;&gt;It looks like the signatures on your initial contract and your final contract didn&#x27;t match. Here&#x27;s what we have for the initial contract; could you please re-sign the final contract to match?
+
+Name on Credit Check: &lt;&lt;print $sig&gt;&gt;
+Re-Sign Here: &lt;&lt;textbox &quot;$sig2&quot; &quot;&quot; &quot;Signature2&quot; autofocus&gt;&gt;&lt;&lt;else&gt;&gt;
+I just wanted to remind you that you have a document from your utility that requires your signature. You can find it in your MySolarCity account.&lt;&lt;/if&gt;&gt;
+
+Once that&#x27;s taken care of, we can schedule your installation!
+
+-Eric Energy
+eric.energy@solarcity.com
+(888) 321-7654
+&lt;/div&gt;
+[[Thanks for following up, Eric!|ScheduleInstall]]</tw-passagedata><tw-passagedata pid="80" name="Mount" tags="" position="1051,2025">&lt;&lt;set $cancel to &quot;sally&quot;&gt;&gt;Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I understand you don&#x27;t like the placement of the panels on this mounting plane. I will make some adjustments and send the designs back to our design team for an update. It will just take another day or two to make the changes.
+There could be an increase in price based on the new design, is that okay?&lt;/div&gt;
+[[Actually, I&#x27;m having second thoughts about my entire project.|Retention]]
+&lt;&lt;linkreplace &quot;I understand, thanks for addressing my concerns!&quot;&gt;&gt;Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Based on your concerns, Sally has some work to do. 
+*She will review your proposal and the estimated offset
+*She will review the notes in SolarWorks to see if any apply to the design.
+*She&#x27;ll compare the new design against satellite images and the Site Survey information to best meet your needs.
+*Finally, Sally will upload your new designs and email them to the Design Hotline, making note of the mounting plane and annual production target desired.
+&lt;/p&gt;&lt;/div&gt;
+[[Thanks for the scoop, Luis!|FinalContract]]&lt;&lt;/linkreplace&gt;&gt;
+</tw-passagedata><tw-passagedata pid="81" name="Size" tags="" position="1051,1902">&lt;&lt;set $cancel to &quot;sally&quot;&gt;&gt;Sally Sunshine says:
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I understand you don&#x27;t think the system will produce enough for your usage. Rest assured, we take your historical usage into account in the design, but I will make some adjustments and send the designs back to our design team for an update. It will just take another day or two to make the changes.
+There could be an increase in price based on the new design, is that okay?&lt;/div&gt;
+[[Actually, I&#x27;m having second thoughts about my entire project.|Retention]]
+&lt;&lt;linkreplace &quot;I understand, thanks for addressing my concerns!&quot;&gt;&gt;Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-5.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Based on your concerns, Sally has some work to do. 
+*She will review your proposal and the estimated offset
+*She will review the notes in SolarWorks to see if any apply to the design.
+*She&#x27;ll compare the new design against satellite images and the Site Survey information to best meet your needs.
+*Finally, Sally will upload your new designs and email them to the Design Hotline, making note of the mounting plane and annual production target desired.
+&lt;/p&gt;&lt;/div&gt;
+[[Thanks for the scoop, Luis!|FinalContract]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="ScheduleInstall2" tags="" position="1179,1901">Pat PV says:
+&lt;div class=&quot;other&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;I have just a few things to go over with you before the big day:
+&lt;&lt;if $work == 0&gt;&gt;*Since we&#x27;ll be doing your Main Panel Upgrade at the same time, please ensure that the area around the main electrical panel will be accesible by the crew so as to have room to install the electrical equipment.&lt;&lt;/if&gt;&gt;
+*Please ensure the driveways within 30 feet of your home are clear as the crew will need a safe place to work in.
+*It does also look like we will need access to the inside of your home during the installation and we require someone 18 years or older to be home for this.
+*I can have the crew out to your home on $dayofweek2 $timeofday2. It will take the crew a couple hours to complete the installation.
+*&lt;&lt;linkappend &quot;So you are aware, our installation crew will need to turn off the electricity to the home.&quot;&gt;&gt; This will take about an hour and is necessary for us to safely connect to the grid. This will be coordinated by the crew lead with whomever is home.&lt;&lt;/linkappend&gt;&gt;
+*When the installation is complete, you will go through a final building inspection from the city or county. 
+*&lt;&lt;linkappend &quot;After that we will need to receive permission to operate.&quot;&gt;&gt; The current timeline is averaging a few weeks. Please keep in mind this is an estimation based on what we are currently seeing and could change.&lt;&lt;/linkappend&gt;&gt;
+*&lt;&lt;if $contract == &quot;ppa&quot;&gt;&gt;According to your Power Purchase Agreement, your first bill will not be sent until after your system has been turned on.&lt;&lt;elseif $contract ==&quot;loan&quot;&gt;&gt;Per your Solar Loan agreement, you will receive your first bill 2-3 months after installation.&lt;&lt;else&gt;&gt;Refer to your contract for the due date of your first payment.&lt;&lt;/if&gt;&gt;
+Thank you for scheduling your installation! One last thing - I know you&#x27;ve heard of our One Month On Us program - did you have any you would like to help go solar?&lt;/div&gt;
+[[Yes, I want my $200!|Referral]]
+&lt;&lt;linkreplace &quot;Not today, thanks.&quot;&gt;&gt;
+&lt;div class=&quot;other&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;It appears there&#x27;s one more thing for our Concierge team to discuss with you.
+Could you please hold for a moment while I get Eric on the line?
+I believe he has an update for you.&lt;/div&gt;
+[[Sure, I&#x27;ll hold.|Docs2]]&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(/^(?:(?:uncaught\s+(?:exception:\s+)?)?error:\s+)+/i,"")+".":": unknown error."),n&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}();!function(){function e(e,t){var a=String(e);switch(t){case"start":return a&&r.test(a)?a.replace(r,""):a;case"end":return a&&n.test(a)?a.replace(n,""):a;default:throw new Error('_trimFrom called with incorrect where parameter value: "'+t+'"')}}function t(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n="undefined"==typeof t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var r=/^[\s\u00A0\uFEFF][\s\u00A0\uFEFF]*/,n=/[\s\u00A0\uFEFF][\s\u00A0\uFEFF]*$/;Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(t===n||t!==t&&n!==n)return!0}return!1}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(e,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(e,10);return i<=a?n:t(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(e,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(e,10);return i<=a?n:n+t(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return e(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return e(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return e(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return e(this,"end")}})}(),function(){function _random(){if(0===arguments.length)throw new Error("_random called with insufficient parameters");var e=void 0,t=void 0;if(1===arguments.length?(e=0,t=arguments[0]):(e=arguments[0],t=arguments[1]),e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e,t,r){var n=t,a=r;return 2===arguments.length&&(a=n,n=0),Array.isArray(e)?e.random(n,a):e.hasOwnProperty("length")?[].concat(_toConsumableArray(e)).random(n,a):void 0}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;(r=e.call(this,t,r))!==-1;)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=Array.prototype.splice,a=Array.prototype.concat.apply([],arguments),i=[],o=0,s=a.length;o<s;++o)for(var u=a[o],l=0;(l=t.call(this,u,l))!==-1;)r.apply(i,n.call(this,l,1));return i}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.reduce.call(this,function(e,t){return e.concat(Array.isArray(t)?t.flatten():t)},[])}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var r=this.length>>>0;if(0!==r){var n=e,a=t;return 1===arguments.length&&(a=n,n=0),null==n?n=0:n<0?(n=r+n,n<0&&(n=0)):n>=r&&(n=r-1),null==a?a=r-1:a<0?(a=r+a,a<0&&(a=r-1)):a>=r&&(a=r-1),Array.prototype.splice.call(this,_random(n,a),1)[0]}}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var r=this.length>>>0;if(0!==r){var n=e,a=t;return 1===arguments.length&&(a=n,n=0),null==n?n=0:n<0?(n=r+n,n<0&&(n=0)):n>=r&&(n=r-1),null==a?a=r-1:a<0?(a=r+a,a<0&&(a=r-1)):a>=r&&(a=r-1),this[_random(n,a)]}}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0!==e){for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1)),n=[this[r],this[t]];this[t]=n[0],this[r]=n[1]}return this}}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function e(t,r,n){var e=Number(t);return Number.isNaN(e)?NaN:e.clamp(r,n)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||!function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch("undefined"==typeof i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return String.prototype.indexOf.apply(this,arguments)!==-1}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;(n=t.call(this,e,n))!==-1;)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n,a<0&&(a=0)):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return"undefined"!=typeof r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return n===-1?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return n===-1?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e={userAgent:navigator.userAgent.toLowerCase()};return e.isGecko=navigator&&"Gecko"===navigator.product&&!/webkit|trident/.test(e.userAgent),e.isIE=/msie|trident/.test(e.userAgent)&&!e.userAgent.includes("opera"),e.ieVersion=function(){var t=/(?:msie\s+|rv:)(\d{1,2}\.\d)/.exec(e.userAgent);return t?Number([1]):0}(),e.isOpera=e.userAgent.includes("opera")||e.userAgent.includes(" opr/"),e.operaVersion=function(){var t=new RegExp((/applewebkit|chrome/.test(e.userAgent)?"opr":"version")+"\\/(\\d{1,2}\\.\\d+)"),r=t.exec(e.userAgent);return r?Number(r[1]):0}(),e.isMobile=Object.freeze({Android:/android/.test(e.userAgent),BlackBerry:/blackberry/.test(e.userAgent),iOS:/ip(?:hone|ad|od)/.test(e.userAgent),Windows:/iemobile/.test(e.userAgent),any:function(){var t=e.isMobile;return t.Android||t.BlackBerry||t.iOS||t.Windows}}),Object.freeze(e)}(),Has=function(){function e(e){try{if(null!=e&&e.length>=0){var t="SugarCube.WebStorage.Test",r="1701 Guilty Scott";if(e.setItem(t,r),e.getItem(t)===r)return e.removeItem(t),!0}}catch(e){}return!1}return Object.freeze({audio:"function"==typeof document.createElement("audio").canPlayType,fileAPI:"File"in window&&"FileList"in window&&"FileReader"in window&&!Browser.isMobile.any()&&(!Browser.isOpera||Browser.operaVersion>=15),geolocation:"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition,localStorage:"localStorage"in window&&e(window.localStorage),sessionStorage:"sessionStorage"in window&&e(window.sessionStorage)})}(),_ref4=function(){function e(t){if("object"!==("undefined"==typeof t?"undefined":_typeof(t))||null==t)return t;if("function"==typeof t.clone)return t.clone(!0);if(t.nodeType&&"function"==typeof t.cloneNode)return t.cloneNode(!0);var r=void 0;return Array.isArray(t)?r=[]:t instanceof Date?r=new Date(t.getTime()):t instanceof Map?(r=new Map,t.forEach(function(t,n){r.set(n,e(t))})):t instanceof RegExp?r=new RegExp(t):t instanceof Set?(r=new Set,t.forEach(function(t){r.add(e(t))})):r=Object.create(Object.getPrototypeOf(t)),Object.keys(t).forEach(function(n){return r[n]=e(t[n])}),r}function t(e){for(var t=document.createDocumentFragment(),r=document.createElement("p"),n=void 0;null!==(n=e.firstChild);){if(n.nodeType===Node.ELEMENT_NODE){var a=n.nodeName.toUpperCase();switch(a){case"BR":if(null!==n.nextSibling&&n.nextSibling.nodeType===Node.ELEMENT_NODE&&"BR"===n.nextSibling.nodeName.toUpperCase()){e.removeChild(n.nextSibling),e.removeChild(n),t.appendChild(r),r=document.createElement("p");continue}if(!r.hasChildNodes()){e.removeChild(n);continue}break;case"ADDRESS":case"ARTICLE":case"ASIDE":case"BLOCKQUOTE":case"CENTER":case"DIV":case"DL":case"FIGURE":case"FOOTER":case"FORM":case"H1":case"H2":case"H3":case"H4":case"H5":case"H6":case"HEADER":case"HR":case"MAIN":case"NAV":case"OL":case"P":case"PRE":case"SECTION":case"TABLE":case"UL":r.hasChildNodes()&&(t.appendChild(r),r=document.createElement("p")),t.appendChild(n);continue}}r.appendChild(n)}r.hasChildNodes()&&t.appendChild(r),e.appendChild(t)}function r(){try{return document.activeElement||null}catch(e){return null}}function n(e,t,r){var n="object"===("undefined"==typeof e?"undefined":_typeof(e))?e:document.getElementById(e);if(null==n)return null;var a=Array.isArray(t)?t:[t];jQuery(n).empty();for(var i=0,o=a.length;i<o;++i)if(Story.has(a[i]))return new Wikifier(n,Story.get(a[i]).processText().trim()),n;if(null!=r){var s=String(r).trim();""!==s&&new Wikifier(n,s)}return n}function a(e,t,r){return jQuery(document.createElement("span")).addClass("error").attr("title",r).text(L10n.get("errorTitle")+": "+(t||"unknown error")).appendTo(e),!1}function i(e,t){switch("undefined"==typeof e?"undefined":_typeof(e)){case"number":if(Number.isNaN(e))return t;break;case"object":if(null===e)return t;if(Array.isArray(e)||e instanceof Set)return[].concat(_toConsumableArray(e)).map(function(e){return i(e,t)}).join(", ");if(e instanceof Map){var r=function(){var r=i,n=[].concat(_toConsumableArray(e)).map(function(e){return r(e[0],t)+" ⇒ "+r(e[1],t)}).join("; ");return{v:"( "+n+" )"}}();if("object"===("undefined"==typeof r?"undefined":_typeof(r)))return r.v}else{if(e instanceof Date)return e.toLocaleString();if("function"==typeof e.toString)return e.toString()}return Object.prototype.toString.call(e);case"function":case"undefined":return t}return String(e)}return Object.freeze(Object.defineProperties({},{clone:{value:e},convertBreaks:{value:t},safeActiveElement:{value:r},setPageElement:{value:n},throwError:{value:a},toStringOrDefault:{value:i}}))}(),clone=_ref4.clone,convertBreaks=_ref4.convertBreaks,safeActiveElement=_ref4.safeActiveElement,setPageElement=_ref4.setPageElement,throwError=_ref4.throwError,toStringOrDefault=_ref4.toStringOrDefault;!function(){function e(e){13!==e.which&&32!==e.which||(e.preventDefault(),jQuery(safeActiveElement()||this).trigger("click"))}function t(e){return function(){var t=jQuery(this);t.is("[aria-pressed]")&&t.attr("aria-pressed","true"===t.attr("aria-pressed")?"false":"true"),e.apply(this,arguments)}}function r(e){return t(function(){jQuery(this).off(".aria-clickable").removeAttr("tabindex aria-controls aria-pressed").not("a,button").removeAttr("role").end().filter("button").prop("disabled",!0),e.apply(this,arguments)})}jQuery.fn.extend({ariaClick:function(n,a){if(0===this.length||0===arguments.length)return this;var i=n,o=a;return null==o&&(o=i,i=undefined),i=jQuery.extend({namespace:undefined,one:!1,selector:undefined,data:undefined,controls:undefined,pressed:undefined,label:undefined},i),"string"!=typeof i.namespace?i.namespace="":"."!==i.namespace[0]&&(i.namespace="."+i.namespace),"boolean"==typeof i.pressed&&(i.pressed=i.pressed?"true":"false"),this.filter("button").prop("type","button"),this.not("a,button").attr("role","button"),this.attr("tabindex",0),null!=i.controls&&this.attr("aria-controls",i.controls),null!=i.pressed&&this.attr("aria-pressed",i.pressed),null!=i.label&&this.attr({"aria-label":i.label,title:i.label}),this.not("button").on("keypress.aria-clickable"+i.namespace,i.selector,e),this.on("click.aria-clickable"+i.namespace,i.selector,i.data,i.one?r(o):t(o)),this}})}(),function(){jQuery.extend({wikiWithOptions:function(e){for(var t=arguments.length,r=Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];if(0!==r.length){var a=document.createDocumentFragment();r.forEach(function(t){return new Wikifier(a,t,e)});var i=[].concat(_toConsumableArray(a.querySelectorAll(".error"))).map(function(e){return e.textContent.replace(/^(?:(?:Uncaught\s+)?Error:\s+)+/,"")});if(i.length>0)throw new Error(i.join("; "))}},wiki:function(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];this.wikiWithOptions.apply(this,[undefined].concat(t))}}),jQuery.fn.extend({wikiWithOptions:function(e){for(var t=arguments.length,r=Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];if(0===this.length||0===r.length)return this;var a=document.createDocumentFragment();return r.forEach(function(t){return new Wikifier(a,t,e)}),this.append(a),this},wiki:function(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return this.wikiWithOptions.apply(this,[undefined].concat(t))}})}();var Util=function(){function e(e){return Object.freeze(Object.assign(Object.create(null),e))}function t(e){var t=void 0;switch("undefined"==typeof e?"undefined":_typeof(e)){case"number":t=e;break;case"string":t=Number(e);break;default:return!1}return!Number.isNaN(t)&&Number.isFinite(t)}function r(e){return"boolean"==typeof e||"string"==typeof e&&("true"===e||"false"===e)}function n(e){return String(e).trim().replace(/[^\w\s\u2013\u2014-]+/g,"").replace(/[_\s\u2013\u2014-]+/g,"-").toLocaleLowerCase()}function a(e){if(null==e)return"";var t=String(e);return t&&p.test(t)?t.replace(f,function(e){return h[e]}):t}function i(e){if(null==e)return"";var t=String(e);return t&&m.test(t)?t.replace(g,function(e){return v[e]}):t}function o(e){var t=/^([+-]?(?:\d*\.)?\d+)([Mm]?[Ss])$/,r=t.exec(String(e));if(null===r)throw new SyntaxError('invalid time value syntax: "'+e+'"');var n=Number(r[1]);if(/^[Ss]$/.test(r[2])&&(n*=1e3),Number.isNaN(n)||!Number.isFinite(n))throw new RangeError('invalid time value: "'+e+'"');return n}function s(e){if("number"!=typeof e||Number.isNaN(e)||!Number.isFinite(e)){var t=void 0;switch("undefined"==typeof e?"undefined":_typeof(e)){case"string":t='"'+e+'"';break;case"number":t=String(e);break;default:t=Object.prototype.toString.call(e)}throw new Error("invalid milliseconds: "+t)}return e+"ms"}function u(e){if(!e.includes("-"))switch(e){case"bgcolor":return"backgroundColor";case"float":return"cssFloat";default:return e}var t="-ms-"===e.slice(0,4)?e.slice(1):e;return t.split("-").map(function(e,t){return 0===t?e:e.toUpperFirst()}).join("")}function l(e){var t=document.createElement("a"),r=Object.create(null);t.href=e,t.search&&t.search.replace(/^\?/,"").splitOrEmpty(/(?:&(?:amp;)?|;)/).forEach(function(e){var t=e.split("="),n=_slicedToArray(t,2),a=n[0],i=n[1];r[a]=i});var n=t.host&&"/"!==t.pathname[0]?"/"+t.pathname:t.pathname;return{href:t.href,protocol:t.protocol,host:t.host,hostname:t.hostname,port:t.port,path:""+n+t.search,pathname:n,query:t.search,search:t.search,queries:r,searches:r,hash:t.hash}}function c(e,t){for(var r=Object.prototype.toString,n=Array.isArray(e),a=[].concat(Object.keys(e),Object.keys(t)).sort().filter(function(e,t,r){return 0===t||r[t-1]!==e}),i={},o=void 0,s=function(e){return e===o},u=0,l=a.length;u<l;++u){var c=a[u],d=e[c],f=t[c];if(e.hasOwnProperty(c))if(t.hasOwnProperty(c)){if(d===f)continue;if(("undefined"==typeof d?"undefined":_typeof(d))===("undefined"==typeof f?"undefined":_typeof(f)))if("function"==typeof d)d.toString()!==f.toString()&&(i[c]=[y.Copy,f]);else if("object"!==("undefined"==typeof d?"undefined":_typeof(d))||null===d)i[c]=[y.Copy,f];else{var p=r.call(d),h=r.call(f);if(p===h)if("[object Date]"===p){var g=Number(f);Number(d)!==g&&(i[c]=[y.CopyDate,g])}else if("[object RegExp]"===p)d.toString()!==f.toString()&&(i[c]=[y.Copy,clone(f)]);else{var m=Util.diff(d,f);null!==m&&(i[c]=m)}else i[c]=[y.Copy,clone(f)]}else i[c]=[y.Copy,"object"!==("undefined"==typeof f?"undefined":_typeof(f))||null===f?f:clone(f)]}else if(n&&Util.isNumeric(c)){var v=Number(c);if(!o){o="";do o+="~";while(a.some(s));i[o]=[y.SpliceArray,v,v]}v<i[o][1]&&(i[o][1]=v),v>i[o][2]&&(i[o][2]=v)}else i[c]=y.Delete;else i[c]=[y.Copy,"object"!==("undefined"==typeof f?"undefined":_typeof(f))||null===f?f:clone(f)]}return Object.keys(i).length>0?i:null}function d(e,t){for(var r=Object.keys(t||{}),n=clone(e),a=0,i=r.length;a<i;++a){var o=r[a],s=t[o];if(s===y.Delete)delete n[o];else if(Array.isArray(s))switch(s[0]){case y.SpliceArray:n.splice(s[1],1+(s[2]-s[1]));break;case y.Copy:n[o]=clone(s[1]);break;case y.CopyDate:n[o]=new Date(s[1])}else n[o]=Util.patch(n[o],s)}return n}var f=/[&<>"'`]/g,p=new RegExp(f.source),h=Object.freeze({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","`":"&#96;"}),g=/&(?:amp|lt|gt|quot|apos|#39|#x27|#96|#x60);/g,m=new RegExp(g.source),v=Object.freeze({"&amp;":"&","&lt;":"<","&gt;":">","&quot;":'"',"&apos;":"'","&#39;":"'","&#x27;":"'","&#96;":"`","&#x60;":"`"}),y=e({Delete:0,SpliceArray:1,Copy:2,CopyDate:3});return Object.freeze(Object.defineProperties({},{toEnum:{value:e},isNumeric:{value:t},isBoolean:{value:r},slugify:{value:n},escape:{value:a},unescape:{value:i},fromCssTime:{value:o},toCssTime:{value:s},fromCssProperty:{value:u},parseUrl:{value:l},DiffOp:{value:y},diff:{value:c},patch:{value:d},random:{value:Math.random},entityEncode:{value:a},entityDecode:{value:i},evalExpression:{value:function(){return Scripting.evalJavaScript.apply(Scripting,arguments)}},evalStatements:{value:function(){return Scripting.evalJavaScript.apply(Scripting,arguments)}}}))}(),SimpleAudio=function(){function e(){return g}function t(e){g=!!e,l("mute",g)}function r(){return p}function n(e){p=Math.clamp(e,.2,5),l("rate",p)}function a(){return h}function i(e){h=Math.clamp(e,0,1),l("volume",h)}function o(){l("stop")}function s(e,t){if("function"!=typeof t)throw new Error("callback parameter must be a function");f.set(e,t)}function u(e){f.delete(e)}function l(e,t){f.forEach(function(r){return r(e,t)})}function c(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return new(Function.prototype.bind.apply(m,[null].concat(t)))}function d(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return new(Function.prototype.bind.apply(v,[null].concat(t)))}var f=new Map,p=1,h=1,g=!1,m=function(){function e(t){if(_classCallCheck(this,e),Array.isArray(t))this._create(t);else{if(!(t instanceof e))throw new Error("sources parameter must be an array of either URLs or source objects");this._copy(t)}}return _createClass(e,[{key:"_create",value:function(t){if(!Array.isArray(t)||0===t.length)throw new Error("sources parameter must be an array of either URLs or source objects");var r=/^data:\s*audio\/([^;,]+)\s*[;,]/i,n=/\.([^.\/\\]+)$/,a=e.getType,i=[],o=document.createElement("audio");if(t.forEach(function(e){var t=null;switch("undefined"==typeof e?"undefined":_typeof(e)){case"string":var s=void 0;if("data:"===e.slice(0,5)){if(s=r.exec(e),null===s)throw new Error("source data URI missing media type")}else if(s=n.exec(Util.parseUrl(e).pathname),null===s)throw new Error("source URL missing file extension");var u=a(s[1]);null!==u&&(t={src:e,type:u});break;case"object":if(null===e)throw new Error("source object cannot be null");if(!e.hasOwnProperty("src"))throw new Error('source object missing required "src" property');if(!e.hasOwnProperty("format"))throw new Error('source object missing required "format" property');var l=a(e.format);null!==l&&(t={src:e.src,type:l});break;default:throw new Error("invalid source value (type: "+("undefined"==typeof e?"undefined":_typeof(e))+")")}if(null!==t){var c=document.createElement("source");c.src=t.src,c.type=t.type,o.appendChild(c),i.push(t)}}),!o.hasChildNodes())if(Browser.isIE)o.src=undefined;else{var s=document.createElement("source");s.src=undefined,s.type=undefined,o.appendChild(s)}this._finalize(o,i,clone(t))}},{key:"_copy",value:function(t){if(!(t instanceof e))throw new Error("original parameter must be an instance of AudioWrapper");this._finalize(t.audio.cloneNode(!0),clone(t.sources),clone(t.originalSources))}},{key:"_finalize",value:function(e,t,r){var n=this;Object.defineProperties(this,{audio:{configurable:!0,value:e},sources:{configurable:!0,value:Object.freeze(t)},originalSources:{configurable:!0,value:Object.freeze(r)},_error:{writable:!0,value:!1},_faderId:{writable:!0,value:null},_mute:{writable:!0,value:!1},_rate:{writable:!0,value:1},_volume:{writable:!0,value:1}}),jQuery(this.audio).on("loadstart",function(){return n._error=!1}).on("error",function(){return n._error=!0}).find("source:last-of-type").on("error",function(){return n._trigger("error")}),SimpleAudio.subscribe(this,function(e){if(!n.audio)return void SimpleAudio.unsubscribe(n);switch(e){case"mute":n._updateAudioMute();break;case"rate":n._updateAudioRate();break;case"stop":n.stop();break;case"volume":n._updateAudioVolume()}}),this.load()}},{key:"_trigger",value:function(e){jQuery(this.audio).triggerHandler(e)}},{key:"clone",value:function(){return new e(this)}},{key:"destroy",value:function(){SimpleAudio.unsubscribe(this),this.fadeStop(),this.stop();
