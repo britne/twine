@@ -1,0 +1,238 @@
+<tw-storydata name="The Job Flow Teaser" startnode="" creator="Twine" creator-version="2.1.0" ifid="48272230-976A-4F63-9381-76B1989F8201" format="SugarCube" format-version="2.12.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body
+{ font-family: Montserrat, sans-serif;
+  font-size: 14px; }
+
+body { background-color: #F3F3EE; color: #4f504b; }
+
+img.right { float: right; }
+img.left { float: left; margin-right: .5em; }
+img.lb { float: left; clear:both; margin: .5em; }
+img.dynamo { border: 1px solid #4f504b; }
+img.email { display: block; margin-left: auto; margin-right: auto; }
+p.lb { overflow: auto; margin: 0; }
+p.normal {color: #4f504b; }
+hr { border-top: 2px solid #0BB340; padding: .5em; margin: .5em; }
+
+#menu li a { color: #4f504b; }
+#menu li a:hover { color: #F3F3EE; }
+
+tr:hover { background-color: #F1CD33; color: #4f504b; }
+
+#ui-dialog-titlebar { background-color: #F1CD33; }
+
+#ui-bar
+{ background-image: url("https://britne.github.io/twine/RISE6bg.png") ; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  color: #4f504b; 
+}
+
+#ui-bar-toggle { display: none; }
+#ui-dialog-body { background-color: #F3F3EE; }
+button { background-color: #92C5ED; color: #4f504b; }
+
+input:hover, input:focus  
+{ background-color: #92c5ed; 
+  color: #4f504b;
+}
+
+.EC 
+{ color: #CF8B02; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #CF8B02; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.CAMG 
+{ color: #1466a8; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #1466a8; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.care 
+{ color: #634299; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #634299; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.bts 
+{ color: #0BB340; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #0BB340; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.other 
+{ color: #16b5c9; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #16b5c9; 
+  border-radius: 1em; 
+  padding: .5em;
+}
+.email 
+{ color: #000000; 
+  background-color: #ffffff;  
+  border-style: dashed;
+  border-color: #000000; 
+  border-radius: 1em; 
+  padding: .5em;
+  width: 75%;
+  margin: auto;
+}
+.radio
+{ background-color: #F1CD33;
+  text-align: center;
+}
+.end 
+{ color: #e43137; 
+  background-color: #ffffff;  
+  border-style: solid;
+  border-color: #e43137;
+  border-radius: 1em; 
+  padding: .5em;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="1,1">!!Welcome Back to RISE #6 - The Job Flow!
+&lt;img class=&quot;left&quot; src=&quot;https://britne.github.io/twine/paul1.png&quot; height=&quot;225&quot;&gt;Paul here! I hope you remember this fun story game we played to learn about the SolarCity Job Flow.
+
+The interactive story game in RISE #6 lets you step into your customer&#x27;s shoes and explore the Job Flow from their point of view. 
+
+Let&#x27;s review a few things about the Job Flow. You can return to RISE #6 in SCU at any time to replay the full game.
+&lt;hr&gt;
+
+It&#x27;s been a while since I saw you in RISE #6, remind me again what we should call you? 
+Type your name in the box below.
+&lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;AboutHouse&quot; autofocus&gt;&gt;&lt;&lt;button &quot;Continue&quot;&gt;&gt;
+&lt;&lt;set $name to $name.trim()&gt;&gt;
+&lt;&lt;if $name is &quot;&quot;&gt;&gt;
+	&lt;&lt;replace &quot;#name-error&quot;&gt;&gt;Please enter your name!&lt;&lt;/replace&gt;&gt;
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;goto &quot;AboutHouse&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &amp;nbsp;&amp;nbsp; \
+&lt;span id=&quot;name-error&quot;&gt;&lt;/span&gt;
+
+[[Help! I don&#x27;t understand how this game works.|Navigation Help]]</tw-passagedata><tw-passagedata pid="2" name="AboutHouse" tags="" position="26,126">&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/paul2.png&quot; height=&quot;225&quot;&gt;That&#x27;s right, I remember now, $name! I also remember that you were a homeowner. Remind me about your house.
+
+What kind of roof does it have?
+&lt;&lt;radiobutton &quot;$roof&quot; &quot;shingle&quot; checked&gt;&gt; Shingle 
+&lt;&lt;radiobutton &quot;$roof&quot; &quot;flat tile&quot;&gt;&gt; Flat Tile 
+&lt;&lt;radiobutton &quot;$roof&quot; &quot;round tile&quot;&gt;&gt; Round Tile
+
+What about shading?
+&lt;&lt;radiobutton &quot;$tree&quot; &quot;a few&quot; checked&gt;&gt; I have a few trees in my yard. 
+&lt;&lt;radiobutton &quot;$tree&quot; &quot;no&quot;&gt;&gt; I don&#x27;t have any trees. 
+&lt;&lt;radiobutton &quot;$tree&quot; &quot;several&quot;&gt;&gt; I have several large trees in my backyard.
+
+What about your solar project? How did that go?
+&lt;&lt;radiobutton &quot;$solar&quot; &quot;yes&quot; checked&gt;&gt; Great! The SolarCity team was very helpful and I love saving money with cleaner energy!. 
+&lt;&lt;radiobutton &quot;$solar&quot; &quot;no&quot;&gt;&gt; It didn&#x27;t work out. I ended up cancelling my project. 
+&lt;hr&gt;
+[[Continue|LearnAboutSolar]]
+</tw-passagedata><tw-passagedata pid="3" name="LearnAboutSolar" tags="" position="150,126">&lt;img class=&quot;left&quot; src=&quot;https://britne.github.io/twine/paul3.png&quot; height=&quot;225&quot;&gt;I remember now! Your house with the $roof roof and $tree trees was one of my favorites. 
+
+&lt;&lt;if $solar == &quot;yes&quot;&gt;&gt;Sally Sunshine and Eric Energy told me all about your project, and I heard that Luis the Lightbulb even popped up to share some behind-the-scenes details. &lt;&lt;elseif $solar == &quot;no&quot;&gt;&gt;Sorry to hear your solar project didn&#x27;t work out. If you change your mind later, I know the SolarCity team would be excited to help you go solar in the future.&lt;&lt;/if&gt;&gt;
+&lt;hr&gt;
+[[Continue|LightBulb]]
+
+
+
+
+
+
+
+</tw-passagedata><tw-passagedata pid="4" name="StoryMenu" tags="" position="253,1">[[Navigation Help]]
+
+</tw-passagedata><tw-passagedata pid="5" name="StoryBanner" tags="" position="762,1">&lt;img src=&quot;https://britne.github.io/twine/RISE6.png&quot; height=&quot;100&quot; width=&quot;120&quot;&gt;</tw-passagedata><tw-passagedata pid="6" name="StorySubtitle" tags="" position="457,1">CAMG RISE #6</tw-passagedata><tw-passagedata pid="7" name="StoryAuthor" tags="" position="559,1">brought to you by  
+CAMG Training</tw-passagedata><tw-passagedata pid="8" name="StoryTitle" tags="" position="355,1">The Job Flow</tw-passagedata><tw-passagedata pid="9" name="StoryCaption" tags="" position="661,1">Option Menu</tw-passagedata><tw-passagedata pid="10" name="Navigation Help" tags="" position="129,1">!!Navigation Help
+&lt;img class=&quot;left&quot; src=&quot;https://britne.github.io/twine/bitmoji-paul-4.png&quot; height=&quot;50&quot;&gt;This help section will always be available in the sidebar.
+Use the back arrow to return.
+&lt;hr&gt;
+&lt;div class=&quot;EC&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://britne.github.io/twine/chat.png&quot; height=&quot;50&quot; width=&quot;50&quot;&gt;There are characters you will meet throughout the story.
+When they&#x27;re talking to you, it will look like this.
+Chat bubbles are different colors based on who you&#x27;re talking to.&lt;/div&gt;
+&lt;&lt;linkreplace &quot;I&#x27;m a link! Click here!&quot;&gt;&gt; Links will move the story forward. They may show you additional information or let you make choices.
+
+The story may ask you to type information in boxes like these: &lt;&lt;textbox &quot;$test&quot; &quot;&quot; autofocus&gt;&gt;
+
+&lt;&lt;radiobutton &quot;$test&quot; &quot;test1&quot; checked&gt;&gt; You may also 
+&lt;&lt;radiobutton &quot;$test&quot; &quot;test2&quot;&gt;&gt; be asked to 
+&lt;&lt;radiobutton &quot;$test&quot; &quot;test3&quot;&gt;&gt; choose options 
+&lt;&lt;radiobutton &quot;$test&quot; &quot;test4&quot;&gt;&gt; with radio buttons.&lt;&lt;/linkreplace&gt;&gt;
+
+&lt;&lt;linkappend &quot;There are several videos throughout the story to show you more information.&quot;&gt;&gt; You are not required to watch the videos to move forward. If you experience any issues playing the videos from within the story, &lt;a href=&quot;https://thegrid.solarcity.com/display/OPSCAMG/Job+Flow+-+Additional+Resources&quot; target=&quot;_blank&quot;&gt;click here to view them on The Grid&lt;/a&gt;, or view the &quot;Job Flow Additional Resources&quot; page linked in the Resources section of the course in SCU.&lt;&lt;/linkappend&gt;&gt;
+
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/arrows.png&quot; width=&quot;100&quot;&gt;The arrow buttons let you move backwards and forwards through the story passages you have visited.
+
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/optionmenu.png&quot; width=&quot;200&quot;&gt;The sidebar menu will show you additional options, such as taking a survey or calling for help, based on where you are in the story. 
+
+&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/savemenu.png&quot; width=&quot;200&quot;&gt;You can save your progress and return to your save point later. You may also want to save your game if you plan to step away from your computer or take a phone call, so you can easily resume where you left off. You can restart the story from the beginning at any time.
+
+Note that the game saves on a computer-by-computer basis. If you resume the game on another computer, your progress is not saved. 
+</tw-passagedata><tw-passagedata pid="11" name="Solarversary" tags="" position="401,126">&lt;img class=&quot;left&quot; src=&quot;https://britne.github.io/twine/paul4.png&quot; height=&quot;225&quot;&gt;I hope you enjoyed learning about the Job Flow through our customer&#x27;s eyes in this interactive format. You may return to RISE #6 and replay this story game as often as you like. 
+
+If you have feedback to share about this story game, please use the Evaluation Form at the end of this course.
+
+Keep RISE-ing!
+-Paul</tw-passagedata><tw-passagedata pid="12" name="StoryInit" tags="" position="864,1">&lt;&lt;set $refer to &quot;your friend&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="LightBulb" tags="" position="274,126">Luis the Lightbulb says:
+&lt;div class=&quot;bts&quot;&gt;&lt;img class=&quot;lb&quot; src=&quot;https://britne.github.io/twine/LB-4.png&quot; height=&quot;100&quot; width=&quot;60&quot;&gt;&lt;p class=&quot;lb&quot;&gt;Good to see you again, $name!
+I&#x27;ve been hanging out with my CAMG friends lately, and they&#x27;ve been hard at work on other jobs, just like yours. Be sure to visit the pages they created for the Virtual Job Shadowing portion of RISE #6 to learn more about each team.
+My CAMG friends can be your friends too - send them an email to meet in person for a live shadowing session. They&#x27;ll be happy to answer all of your questions about their team. Tell them Luis the Lightbulb sent you!
+&lt;/p&gt;&lt;/div&gt;
+[[Continue|Solarversary]]
+</tw-passagedata></tw-storydata>
