@@ -102,11 +102,46 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="AcronymMadLibs" startnode="1" creator="Twine" creator-version="2.2.1" ifid="C940DCA0-10F1-4105-B544-3148422A9C51" zoom="1" format="SugarCube" format-version="2.21.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Untitled Passage" tags="" position="61,19" size="100,100">Welcome to Acronym Mad Libs!
+	<div id="store-area" hidden><tw-storydata name="AcronymMadLibs" startnode="1" creator="Twine" creator-version="2.2.1" ifid="C940DCA0-10F1-4105-B544-3148422A9C51" zoom="1" format="SugarCube" format-version="2.21.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+	color: #ce2300;
+	background-color: #f7f7f7;
+	font-family: 'Montserrat', sans-serif;
+}
+  
+a {
+	color: #2a96ff;
+}
+
+a:hover {
+	color: #29ba00;
+}
+
+#ui-bar {
+	background-color: #a7a7a7;
+}
+
+input, select, textarea {
+	color: #333333;
+}
+
+input:not(:disabled):focus, select:not(:disabled):focus, textarea:not(:disabled):focus,
+input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled):hover {
+	background-color: transparent;
+}
+
+img {
+  	float: right;
+  	clear: right;
+  	margin: 10px;
+}
+  </style><script role="script" id="twine-user-script" type="text/twine-javascript">UIBar.stow();
+</script><tw-passagedata pid="1" name="Untitled Passage" tags="" position="61,19" size="100,100">&lt;img src=&quot;https://britne.github.io/twine/acronyms.png&quot; height=&quot;300px&quot; width=&quot;300px&quot;&gt;Welcome to Acronym Mad Libs!
 
 Today you&#39;ll be creating a story using commonly referenced acronyms.
 
-On the screens that follow, make your acronym choices to fill in the story. If you aren&#39;t sure what an acronym means, use the &lt;a href=&quot;https://confluence.teslamotors.com/display/OPSCAMG/Approved+CAMG+Acronyms&quot;&gt;Approved Acronym List on Confluence&lt;/a&gt; to look up the definition.
+On the screens that follow, make your acronym choices to fill in the story. 
+
+If you aren&#39;t sure what an acronym means, use the &lt;a href=&quot;https://confluence.teslamotors.com/display/OPSCAMG/Approved+CAMG+Acronyms&quot; target=&quot;_blank&quot;&gt;Approved Acronym List on Confluence&lt;/a&gt; to look up the definition.
 
 When you&#39;ve chosen the acronyms you want, generate your story and see if it makes sense! You may replay the game as often as you like.
 
@@ -117,23 +152,25 @@ Ready to get started?
 
 I was talking to a $title1 about $noun1 over lunch, when all of a sudden, my friend $friend from the $iteam1 team came running into the break room.
 
-&quot;$name! You have to hear about this job I was just working on. I was on the phone with a $person1 trying to locate a missing $doc1, when all of a sudden, the $pv1 $verb1! He started to panic as the $elec1 went wild and started yelling at me about whether or not a $noun2 would be necessary.&quot;
+&quot;$name! You have to hear about this job I was just working on. I was on the phone with a $person1 trying to locate a missing $doc1, when all of a sudden, the $person2 $verb1 about the $pv1! He started to panic as the $elec1 went wild and started yelling at me about whether or not a $noun2 would be necessary.&quot;
 
 $friend paused for a breath. I wanted to hear more about this job, so I asked $friend to continue.
 
-&quot;I knew I had to involve $title2 from the $iteam2 team, so I started to transfer the call. Little did I know, $eteam1 was listening in! They quickly suggested $person2 try to $verb2 the $pv2!&quot;
+&quot;I knew I had to involve $title2 and maybe even the $iteam2 team, so I started to transfer the call. Little did I know, $eteam1 was listening in! They quickly suggested $person2 try to $verb2 the $pv2!&quot;
 
 I gasped.
 
-&quot;I wasn&#39;t sure it was a good idea, but $elec2 can be unpredictable. Besides, we still needed the $doc2 to continue! So we took the advice of the $eteam2, calmed down the $person3, and the situation was resolved.&quot;
+&quot;I was concerned because $elec2 can be unpredictable. Besides, we still needed the $doc2 to continue! So we took the advice of the $eteam2, calmed down the $person3, and the situation was resolved.&quot;
 
 I asked, was that all?
 
-$friend replied, &quot;What do you mean? It wasn&#39;t $verb3 enough for you? I&#39;ll have to catch you on our next break and tell you the story about $noun3!&quot;
+$friend replied, &quot;What do you mean? I $verb3 to the best of my ability! I&#39;ll have to catch you on our next break and tell you the story about this crazy $noun3!&quot;
 
 &lt;hr&gt;
 [[Want to try again? Click here to go back and replay.|Choices]]</tw-passagedata><tw-passagedata pid="3" name="Choices" tags="" position="185,22" size="100,100">Enter your name: &lt;&lt;textbox &quot;$name&quot; &quot;Your Name Here&quot;&gt;&gt;
 Enter the name of a friend/teammate: &lt;&lt;textbox &quot;$friend&quot; &quot;Their Name Here&quot;&gt;&gt;
+
+//Remember, if you aren&#39;t sure what an acronym means, use the &lt;a href=&quot;https://confluence.teslamotors.com/display/OPSCAMG/Approved+CAMG+Acronyms&quot; target=&quot;_blank&quot;&gt;Approved Acronym List on Confluence&lt;/a&gt; to look up the definition.//
 
 Choose an Internal Person
 &lt;&lt;radiobutton &quot;$title1&quot; &quot;Customer Relations Manager&quot;&gt;&gt; CRM \
@@ -176,12 +213,11 @@ Choose an Internal Person
 &lt;&lt;radiobutton &quot;$doc1&quot; &quot;Transfer Agreement&quot;&gt;&gt; TA \
 &lt;&lt;/linkreplace&gt;&gt;
 
-&lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose a Part of a PV System
-&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Automatic Transfer Switch&quot;&gt;&gt; ATS \
-&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Inverter&quot;&gt;&gt; INV \
-&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Mounting Plane&quot;&gt;&gt; MP \
-&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Main Service Panel&quot;&gt;&gt; MSP \
-&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Powerwall&quot;&gt;&gt; PW \
+&lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose an External Person
+&lt;&lt;radiobutton &quot;$person2&quot; &quot;Customer&quot;&gt;&gt; CUST \
+&lt;&lt;radiobutton &quot;$person2&quot; &quot;Homeowner&quot;&gt;&gt; HO \
+&lt;&lt;radiobutton &quot;$person2&quot; &quot;Homeowner&#39;s Association&quot;&gt;&gt; HOA \
+&lt;&lt;radiobutton &quot;$person2&quot; &quot;Utility Company&quot;&gt;&gt; UC \
 &lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose an Action
@@ -190,6 +226,14 @@ Choose an Internal Person
 &lt;&lt;radiobutton &quot;$verb1&quot; &quot;Followed Up&quot;&gt;&gt; F/U \
 &lt;&lt;radiobutton &quot;$verb1&quot; &quot;Left Voicemail&quot;&gt;&gt; LVM \
 &lt;&lt;radiobutton &quot;$verb1&quot; &quot;Talked To&quot;&gt;&gt; TT \
+&lt;&lt;/linkreplace&gt;&gt;
+
+&lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose a Part of a PV System
+&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Automatic Transfer Switch&quot;&gt;&gt; ATS \
+&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Inverter&quot;&gt;&gt; INV \
+&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Mounting Plane&quot;&gt;&gt; MP \
+&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Main Service Panel&quot;&gt;&gt; MSP \
+&lt;&lt;radiobutton &quot;$pv1&quot; &quot;Powerwall&quot;&gt;&gt; PW \
 &lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose an Electricity Term 
@@ -236,10 +280,10 @@ Choose an Internal Person
 &lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose another External Person
-&lt;&lt;radiobutton &quot;$person2&quot; &quot;Customer&quot;&gt;&gt; CUST \
-&lt;&lt;radiobutton &quot;$person2&quot; &quot;Homeowner&quot;&gt;&gt; HO \
-&lt;&lt;radiobutton &quot;$person2&quot; &quot;Homeowner&#39;s Association&quot;&gt;&gt; HOA \
-&lt;&lt;radiobutton &quot;$person2&quot; &quot;Utility Company&quot;&gt;&gt; UC \
+&lt;&lt;radiobutton &quot;$person3&quot; &quot;Customer&quot;&gt;&gt; CUST \
+&lt;&lt;radiobutton &quot;$person3&quot; &quot;Homeowner&quot;&gt;&gt; HO \
+&lt;&lt;radiobutton &quot;$person3&quot; &quot;Homeowner&#39;s Association&quot;&gt;&gt; HOA \
+&lt;&lt;radiobutton &quot;$person3&quot; &quot;Utility Company&quot;&gt;&gt; UC \
 &lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose another Action
@@ -283,10 +327,10 @@ Choose an Internal Person
 &lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose another External Person
-&lt;&lt;radiobutton &quot;$person3&quot; &quot;Customer&quot;&gt;&gt; CUST \
-&lt;&lt;radiobutton &quot;$person3&quot; &quot;Homeowner&quot;&gt;&gt; HO \
-&lt;&lt;radiobutton &quot;$person3&quot; &quot;Homeowner&#39;s Association&quot;&gt;&gt; HOA \
-&lt;&lt;radiobutton &quot;$person3&quot; &quot;Utility Company&quot;&gt;&gt; UC \
+&lt;&lt;radiobutton &quot;$person4&quot; &quot;Customer&quot;&gt;&gt; CUST \
+&lt;&lt;radiobutton &quot;$person4&quot; &quot;Homeowner&quot;&gt;&gt; HO \
+&lt;&lt;radiobutton &quot;$person4&quot; &quot;Homeowner&#39;s Association&quot;&gt;&gt; HOA \
+&lt;&lt;radiobutton &quot;$person4&quot; &quot;Utility Company&quot;&gt;&gt; UC \
 &lt;&lt;/linkreplace&gt;&gt;
 
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose another Action
@@ -300,7 +344,7 @@ Choose an Internal Person
 &lt;&lt;linkreplace &quot;Next Choice&quot;&gt;&gt;Choose another Concept
 &lt;&lt;radiobutton &quot;$noun3&quot; &quot;Close of Escrow&quot;&gt;&gt; COE \
 &lt;&lt;radiobutton &quot;$noun3&quot; &quot;Fair Market Value&quot;&gt;&gt; FMV \
-&lt;&lt;radiobutton &quot;$noun3&quot; &quot;Job Close/Check Out	&quot;&gt;&gt; JCO \
+&lt;&lt;radiobutton &quot;$noun3&quot; &quot;Job Close/Check Out&quot;&gt;&gt; JCO \
 &lt;&lt;radiobutton &quot;$noun3&quot; &quot;Main Panel Upgrade&quot;&gt;&gt; MPU \
 &lt;&lt;radiobutton &quot;$noun3&quot; &quot;Net Energy Metering&quot;&gt;&gt; NEM \
 &lt;&lt;radiobutton &quot;$noun3&quot; &quot;Permission to Operate&quot;&gt;&gt; PTO \
